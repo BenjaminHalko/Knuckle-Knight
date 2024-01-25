@@ -4,7 +4,7 @@ function Input() {
 	var _gpUp = false;
 	var _gpDown = false;
 	var _gpJump = false;
-	var _deadzone = 0.08;
+	var _deadzone = 0.2;
 	for(var i = 0; i < gamepad_get_device_count(); i++) {
 		if(gamepad_button_check(i,gp_padl) or gamepad_axis_value(i,gp_axislh) <= -_deadzone) _gpLeft = true;
 		if(gamepad_button_check(i,gp_padr) or gamepad_axis_value(i,gp_axislh) >= _deadzone) _gpRight = true;
