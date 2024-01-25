@@ -11,7 +11,7 @@ jumpspd = -10;
 jump_buffer = 10;
 dashSpdStart = 10;
 dashSpdEnd = 1;
-dashAmount = 10;
+dashAmount = 15;
 
 // Movement
 hsp = 0;

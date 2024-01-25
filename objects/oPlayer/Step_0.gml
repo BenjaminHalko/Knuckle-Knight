@@ -24,6 +24,7 @@ if (dashing <= 0) {
 if(keyJump)
 	jumpTimer = jump_buffer;
 	
+show_debug_message(canJump);
 if(canJump-- > 0 and jumpTimer > 0) {
 	vsp = jumpspd;
 	canJump = 0;
@@ -38,7 +39,8 @@ if platform != noone and platform.bbox_bottom < room_height and platform.bbox_to
 }
 
 // Dash
-if (dashing <= 0 and canDash and keyJump and canJump <= 0) {
+if (dashing <= 0 and canDash and keyJump and canJump < 0) {
+	show_debug_message(canJump);
 	if (!keyLeft and !keyRight and !keyUp and !keyDown)
 		dashDirection = 180 * (1 - facing * 2);	
 	else
