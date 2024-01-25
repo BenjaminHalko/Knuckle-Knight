@@ -124,6 +124,7 @@
     {"id":{"name":"FirebaseRealTime_List_Builder","path":"scripts/FirebaseRealTime_List_Builder/FirebaseRealTime_List_Builder.yy",},},
     {"id":{"name":"FirebaseREST_URL_nextInfo","path":"scripts/FirebaseREST_URL_nextInfo/FirebaseREST_URL_nextInfo.yy",},},
     {"id":{"name":"GMLive_nodeTools","path":"scripts/GMLive_nodeTools/GMLive_nodeTools.yy",},},
+    {"id":{"name":"PlayerCurves","path":"animcurves/PlayerCurves/PlayerCurves.yy",},},
     {"id":{"name":"Obj_FirebaseREST_Listener_On_RealTime","path":"objects/Obj_FirebaseREST_Listener_On_RealTime/Obj_FirebaseREST_Listener_On_RealTime.yy",},},
   ],
   "RoomOrderNodes": [

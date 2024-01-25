@@ -24,7 +24,6 @@ if (dashing <= 0) {
 if(keyJump)
 	jumpTimer = jump_buffer;
 	
-show_debug_message(canJump);
 if(canJump-- > 0 and jumpTimer > 0) {
 	vsp = jumpspd;
 	canJump = 0;
@@ -40,16 +39,16 @@ if platform != noone and platform.bbox_bottom < room_height and platform.bbox_to
 
 // Dash
 if (dashing <= 0 and canDash and keyJump and canJump < 0) {
-	show_debug_message(canJump);
 	if (!keyLeft and !keyRight and !keyUp and !keyDown)
 		dashDirection = 180 * (1 - facing * 2);	
 	else
 		dashDirection = point_direction(0,0,keyRight-keyLeft,keyDown-keyUp);
 	dashing = dashAmount;
 	canDash = false;
+	ScreenShake(10, 10);
 }
 if (dashing > 0) {
-	var _amount = lerp(dashSpdEnd, dashSpdStart, dashing / dashAmount);
+	var _amount = lerp(dashSpdStart, dashSpdEnd, animcurve_channel_evaluate(dashCurve, 1 - dashing / dashAmount));
 	hsp = lengthdir_x(_amount, dashDirection);
 	vsp = lengthdir_y(_amount, dashDirection);
 	dashing--;	

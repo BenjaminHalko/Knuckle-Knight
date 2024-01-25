@@ -4,11 +4,12 @@ function Input() {
 	var _gpUp = false;
 	var _gpDown = false;
 	var _gpJump = false;
+	var _deadzone = 0.08;
 	for(var i = 0; i < gamepad_get_device_count(); i++) {
-		if(gamepad_button_check(i,gp_padl) or gamepad_axis_value(i,gp_axislh) <= -0.05) _gpLeft = true;
-		if(gamepad_button_check(i,gp_padr) or gamepad_axis_value(i,gp_axislh) >= 0.05) _gpRight = true;
-		if(gamepad_button_check(i,gp_padu) or gamepad_axis_value(i,gp_axislv) <= -0.05) _gpUp = true;
-		if(gamepad_button_check(i,gp_padd) or gamepad_axis_value(i,gp_axislv) >= 0.05) _gpDown = true;
+		if(gamepad_button_check(i,gp_padl) or gamepad_axis_value(i,gp_axislh) <= -_deadzone) _gpLeft = true;
+		if(gamepad_button_check(i,gp_padr) or gamepad_axis_value(i,gp_axislh) >= _deadzone) _gpRight = true;
+		if(gamepad_button_check(i,gp_padu) or gamepad_axis_value(i,gp_axislv) <= -_deadzone) _gpUp = true;
+		if(gamepad_button_check(i,gp_padd) or gamepad_axis_value(i,gp_axislv) >= _deadzone) _gpDown = true;
 		for(var j = gp_face1; j <= gp_face4; j++) if(gamepad_button_check_pressed(i,j)) _gpJump = true;
 	}
 	

@@ -74,5 +74,6 @@
     {"name":"GMLive_vm_call","order":6,"path":"scripts/GMLive_vm_call/GMLive_vm_call.yy",},
     {"name":"FirebaseREST_URL_nextInfo","order":9,"path":"scripts/FirebaseREST_URL_nextInfo/FirebaseREST_URL_nextInfo.yy",},
     {"name":"GMLive_nodeTools","order":3,"path":"scripts/GMLive_nodeTools/GMLive_nodeTools.yy",},
+    {"name":"PlayerCurves","order":2,"path":"animcurves/PlayerCurves/PlayerCurves.yy",},
   ],
 }

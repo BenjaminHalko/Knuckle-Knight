@@ -36,3 +36,5 @@ knockback = 0;
 
 hp = MAXHEALTH;
 noPlatform = 0;
+
+dashCurve = animcurve_get_channel(PlayerCurves, "dash");
