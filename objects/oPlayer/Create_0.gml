@@ -10,7 +10,7 @@ maxwalk = 3;
 jumpspd = -10;
 jump_buffer = 10;
 dashSpdStart = 10;
-dashSpdEnd = 1;
+dashSpdEnd = 5;
 dashAmount = 15;
 
 // Movement

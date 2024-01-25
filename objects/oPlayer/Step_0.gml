@@ -40,7 +40,7 @@ if platform != noone and platform.bbox_bottom < room_height and platform.bbox_to
 // Dash
 if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 	if (!keyLeft and !keyRight and !keyUp and !keyDown)
-		dashDirection = 180 * (1 - facing * 2);	
+		dashDirection = 180 * (facing == -1);	
 	else
 		dashDirection = point_direction(0,0,keyRight-keyLeft,keyDown-keyUp);
 	dashing = dashAmount;
@@ -94,7 +94,7 @@ x = clamp(x,4,room_width-4);
 y = clamp(y,INFO_HEIGHT+8,room_height);
 
 if (y == room_height)
-	vsp = jumpspd;
+	vsp = jumpspd * 1.8;
 	
 // Animation
 image_xscale = facing;
