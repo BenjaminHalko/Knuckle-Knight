@@ -8,6 +8,7 @@ fric = 0.3;
 walkspd = 0.6;
 maxwalk = 3.8;
 jumpspd = -12;
+maxvspd = 12;
 jump_buffer = 10;
 dashSpdStart = 10;
 dashSpdEnd = 5;

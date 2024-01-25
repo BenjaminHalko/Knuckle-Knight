@@ -19,6 +19,7 @@ if (dashing <= 0) {
 
 	// Vertical
 	vsp += grv;
+	vsp = min(vsp, maxvspd);
 }
 
 if(keyJump)

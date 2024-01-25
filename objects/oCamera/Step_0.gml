@@ -11,8 +11,8 @@ if (instance_exists(follow)) {
 }
 
 //Update Object Position
-x += (xTo - x) / 24;
-y += (yTo - y) / 24;
+x += (xTo - x) / 12;
+y += (yTo - y) / 12;
 
 camera_set_view_pos(cam,x-viewWidthHalf+random_range(-shakeRemain,shakeRemain),y-viewHeightHalf+random_range(-shakeRemain,shakeRemain));
 shakeRemain = max(0, shakeRemain - ((1/shakeLength) * shakeMagnitude));
