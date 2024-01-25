@@ -6,7 +6,7 @@ EnableLive;
 grv = 0.8;
 fric = 0.3;
 walkspd = 0.6;
-maxwalk = 3;
+maxwalk = 3.75;
 jumpspd = -10;
 jump_buffer = 10;
 dashSpdStart = 10;
