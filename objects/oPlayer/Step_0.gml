@@ -87,9 +87,8 @@ y += vsp_final;
 
 // Clamp Values
 x = clamp(x,4,room_width-4);
-y = clamp(y,INFO_HEIGHT+8,room_height);
 
-if (y == room_height) {
+if (y >= room_height) {
 	vsp = jumpspd * 1.8;
 	knockback = 0;
 }
