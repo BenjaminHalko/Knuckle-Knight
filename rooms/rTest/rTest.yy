@@ -1,17 +1,17 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "rGame3",
+  "name": "rTest",
   "creationCodeFile": "",
   "inheritCode": false,
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_18CEAF5E_1","path":"rooms/rGame3/rGame3.yy",},
-    {"name":"inst_36052A9A_1","path":"rooms/rGame3/rGame3.yy",},
-    {"name":"inst_3801B3B0_1","path":"rooms/rGame3/rGame3.yy",},
-    {"name":"inst_45C8C2E2_1","path":"rooms/rGame3/rGame3.yy",},
-    {"name":"inst_7EEFEEF0_1","path":"rooms/rGame3/rGame3.yy",},
+    {"name":"inst_18CEAF5E_1","path":"rooms/rTest/rTest.yy",},
+    {"name":"inst_36052A9A_1","path":"rooms/rTest/rTest.yy",},
+    {"name":"inst_3801B3B0_1","path":"rooms/rTest/rTest.yy",},
+    {"name":"inst_45C8C2E2_1","path":"rooms/rTest/rTest.yy",},
+    {"name":"inst_7EEFEEF0_1","path":"rooms/rTest/rTest.yy",},
   ],
   "isDnd": false,
   "layers": [
