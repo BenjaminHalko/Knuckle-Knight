@@ -82,6 +82,7 @@
     {"id":{"name":"GMLive_vm","path":"scripts/GMLive_vm/GMLive_vm.yy",},},
     {"id":{"name":"GMLive_vm_init","path":"scripts/GMLive_vm_init/GMLive_vm_init.yy",},},
     {"id":{"name":"Obj_FirebaseREST_Listener_RealTime","path":"objects/Obj_FirebaseREST_Listener_RealTime/Obj_FirebaseREST_Listener_RealTime.yy",},},
+    {"id":{"name":"HurtFunctions","path":"scripts/HurtFunctions/HurtFunctions.yy",},},
     {"id":{"name":"LeaderboardAPI","path":"scripts/LeaderboardAPI/LeaderboardAPI.yy",},},
     {"id":{"name":"url_encode","path":"scripts/url_encode/url_encode.yy",},},
     {"id":{"name":"FirebaseREST_HTTP_Success_RealTime","path":"scripts/FirebaseREST_HTTP_Success_RealTime/FirebaseREST_HTTP_Success_RealTime.yy",},},

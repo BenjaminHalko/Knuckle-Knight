@@ -1,0 +1,3 @@
+/// @desc 
+
+HurtPlayer(other);

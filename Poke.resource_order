@@ -49,6 +49,7 @@
     {"name":"GMLive_vm","order":5,"path":"scripts/GMLive_vm/GMLive_vm.yy",},
     {"name":"GMLive_vm_init","order":7,"path":"scripts/GMLive_vm_init/GMLive_vm_init.yy",},
     {"name":"Obj_FirebaseREST_Listener_RealTime","order":2,"path":"objects/Obj_FirebaseREST_Listener_RealTime/Obj_FirebaseREST_Listener_RealTime.yy",},
+    {"name":"HurtFunctions","order":2,"path":"scripts/HurtFunctions/HurtFunctions.yy",},
     {"name":"LeaderboardAPI","order":3,"path":"scripts/LeaderboardAPI/LeaderboardAPI.yy",},
     {"name":"url_encode","order":10,"path":"scripts/url_encode/url_encode.yy",},
     {"name":"FirebaseREST_HTTP_Success_RealTime","order":6,"path":"scripts/FirebaseREST_HTTP_Success_RealTime/FirebaseREST_HTTP_Success_RealTime.yy",},

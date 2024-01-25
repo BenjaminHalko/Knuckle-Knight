@@ -9,7 +9,10 @@
     "name": "Spikes",
     "path": "folders/Hurt/Spikes.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "pHurt",
+    "path": "objects/pHurt/pHurt.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -25,7 +28,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "sSpike",
+    "path": "sprites/sSpike/sSpike.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }
