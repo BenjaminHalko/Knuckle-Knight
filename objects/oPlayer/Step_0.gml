@@ -69,13 +69,9 @@ var _landed = platform == noone;
 platform = collision_line(bbox_left,y+sign(vsp_final),bbox_left+hsp_final,y+vsp_final,oPlatform,false,false);
 if platform == noone
 	platform = collision_line(bbox_right,y+sign(vsp_final),bbox_right+hsp_final,y+vsp_final,oPlatform,false,false);
-if noPlatform > 0 {
-	platform = noone;
-	noPlatform--;
-}
 x += hsp_final;
 
-if platform != noone and (y <= platform.bbox_top or (vsp > 0 and noPlatform <= 0)) {
+if platform != noone and (y <= platform.bbox_top or vsp > 0) {
 	y = platform.bbox_top;
 	vsp_final = 0;
 	vsp = 0;
@@ -93,8 +89,17 @@ y += vsp_final;
 x = clamp(x,4,room_width-4);
 y = clamp(y,INFO_HEIGHT+8,room_height);
 
-if (y == room_height)
+if (y == room_height) {
 	vsp = jumpspd * 1.8;
+	knockback = 0;
+}
+
+if (invincibility <= 0) {
+	image_alpha = 1;
+} else {
+	invincibility--;
+	image_alpha = Wave(0.2,0.95,0.1,0);	
+}
 	
 // Animation
 image_xscale = facing;
@@ -105,7 +110,9 @@ if (dashing > 0) {
 } else {
 	image_angle = 0;
 	mask_index = sPlayerIdle;
-	if (platform != noone) {
+	if (knockback != 0) {
+		sprite_index = sPlayerHurt;
+	} else if (platform != noone) {
 		if (hsp == 0) {
 			sprite_index = sPlayerIdle;	
 		} else {

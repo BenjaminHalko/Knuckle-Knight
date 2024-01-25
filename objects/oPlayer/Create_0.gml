@@ -6,8 +6,8 @@ EnableLive;
 grv = 0.8;
 fric = 0.3;
 walkspd = 0.6;
-maxwalk = 3.75;
-jumpspd = -10;
+maxwalk = 3.8;
+jumpspd = -12;
 jump_buffer = 10;
 dashSpdStart = 10;
 dashSpdEnd = 5;
@@ -34,7 +34,7 @@ platform = noone;
 
 knockback = 0;
 
+invincibility = 0;
 hp = MAXHEALTH;
-noPlatform = 0;
 
 dashCurve = animcurve_get_channel(PlayerCurves, "dash");
