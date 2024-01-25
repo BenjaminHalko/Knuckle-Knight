@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oSolid",
+  "name": "oSpike",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Platform",
-    "path": "folders/Platform.yy",
+    "name": "Spikes",
+    "path": "folders/Hurt/Spikes.yy",
   },
   "parentObjectId": null,
   "persistent": false,

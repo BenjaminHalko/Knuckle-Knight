@@ -51,7 +51,7 @@ if (dashing > 0) {
 	var _amount = lerp(dashSpdStart, dashSpdEnd, animcurve_channel_evaluate(dashCurve, 1 - dashing / dashAmount));
 	hsp = lengthdir_x(_amount, dashDirection);
 	vsp = lengthdir_y(_amount, dashDirection);
-	dashing--;	
+	dashing--;
 }
 
 // Set Speeds
@@ -98,3 +98,24 @@ if (y == room_height)
 	
 // Animation
 image_xscale = facing;
+if (dashing > 0) {
+	mask_index = sPlayerDash;	
+	sprite_index = sPlayerDash;
+	image_angle = dashDirection-90;
+} else {
+	image_angle = 0;
+	mask_index = sPlayerIdle;
+	if (platform != noone) {
+		if (hsp == 0) {
+			sprite_index = sPlayerIdle;	
+		} else {
+			sprite_index = sPlayerRun;	
+		}
+	} else {
+		if (vsp < 0) {
+			sprite_index = sPlayerJump;	
+		} else {
+			sprite_index = sPlayerFall;
+		}
+	}
+}
