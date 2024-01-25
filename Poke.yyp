@@ -100,6 +100,7 @@
     {"id":{"name":"FirebaseREST_asyncCall_RealTime","path":"scripts/FirebaseREST_asyncCall_RealTime/FirebaseREST_asyncCall_RealTime.yy",},},
     {"id":{"name":"GMLive_thread","path":"scripts/GMLive_thread/GMLive_thread.yy",},},
     {"id":{"name":"FirebaseRealTimePaths","path":"scripts/FirebaseRealTimePaths/FirebaseRealTimePaths.yy",},},
+    {"id":{"name":"rGame3","path":"rooms/rGame3/rGame3.yy",},},
     {"id":{"name":"GMLiveAPI_js","path":"scripts/GMLiveAPI_js/GMLiveAPI_js.yy",},},
     {"id":{"name":"oSpike","path":"objects/oSpike/oSpike.yy",},},
     {"id":{"name":"FirebasePathsUserFunctions","path":"scripts/FirebasePathsUserFunctions/FirebasePathsUserFunctions.yy",},},
@@ -131,13 +132,12 @@
     {"id":{"name":"GMLive_nodeTools","path":"scripts/GMLive_nodeTools/GMLive_nodeTools.yy",},},
     {"id":{"name":"PlayerCurves","path":"animcurves/PlayerCurves/PlayerCurves.yy",},},
     {"id":{"name":"pHurt","path":"objects/pHurt/pHurt.yy",},},
-    {"id":{"name":"rTest","path":"rooms/rTest/rTest.yy",},},
     {"id":{"name":"Obj_FirebaseREST_Listener_On_RealTime","path":"objects/Obj_FirebaseREST_Listener_On_RealTime/Obj_FirebaseREST_Listener_On_RealTime.yy",},},
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rInit","path":"rooms/rInit/rInit.yy",},},
     {"roomId":{"name":"rGame","path":"rooms/rGame/rGame.yy",},},
-    {"roomId":{"name":"rTest","path":"rooms/rTest/rTest.yy",},},
+    {"roomId":{"name":"rGame3","path":"rooms/rGame3/rGame3.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [

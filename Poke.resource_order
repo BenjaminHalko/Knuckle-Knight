@@ -58,6 +58,7 @@
     {"name":"FirebaseREST_asyncCall_RealTime","order":2,"path":"scripts/FirebaseREST_asyncCall_RealTime/FirebaseREST_asyncCall_RealTime.yy",},
     {"name":"GMLive_thread","order":4,"path":"scripts/GMLive_thread/GMLive_thread.yy",},
     {"name":"FirebaseRealTimePaths","order":1,"path":"scripts/FirebaseRealTimePaths/FirebaseRealTimePaths.yy",},
+    {"name":"rGame3","order":9,"path":"rooms/rGame3/rGame3.yy",},
     {"name":"GMLiveAPI_js","order":4,"path":"scripts/GMLiveAPI_js/GMLiveAPI_js.yy",},
     {"name":"rInit","order":2,"path":"rooms/rInit/rInit.yy",},
     {"name":"GMLive_compiler","order":1,"path":"scripts/GMLive_compiler/GMLive_compiler.yy",},
@@ -79,6 +80,5 @@
     {"name":"FirebaseREST_URL_nextInfo","order":9,"path":"scripts/FirebaseREST_URL_nextInfo/FirebaseREST_URL_nextInfo.yy",},
     {"name":"GMLive_nodeTools","order":3,"path":"scripts/GMLive_nodeTools/GMLive_nodeTools.yy",},
     {"name":"PlayerCurves","order":2,"path":"animcurves/PlayerCurves/PlayerCurves.yy",},
-    {"name":"rTest","order":9,"path":"rooms/rTest/rTest.yy",},
   ],
 }
