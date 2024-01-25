@@ -5,16 +5,22 @@ EnableLive;
 Input();
 
 #region Movement
-// Horizontal
-hsp = Approach(hsp,0,fric);
-if knockback != 0 {
-	hsp = median(-maxwalk,maxwalk,hsp+sign(knockback)*8);
-	keyLeft = 0;
-	keyRight = 0;
-} else hsp = median(-maxwalk,maxwalk,hsp+(keyRight - keyLeft)*walkspd);
+var _move = keyRight - keyLeft;
+if (dashing <= 0) {
+	// Horizontal
+	hsp = Approach(hsp,0,fric);
+	if (_move != 0)
+		facing = sign(_move);
+	if knockback != 0 {
+		hsp = median(-maxwalk,maxwalk,hsp+sign(knockback)*8);
+		keyLeft = 0;
+		keyRight = 0;
+	} else hsp = median(-maxwalk,maxwalk,hsp+(keyRight - keyLeft)*walkspd);
 
-// Vertical
-vsp += grv;
+	// Vertical
+	vsp += grv;
+}
+
 if(keyJump)
 	jumpTimer = jump_buffer;
 	
@@ -29,6 +35,22 @@ jumpTimer--;
 // Moving Platform
 if platform != noone and platform.bbox_bottom < room_height and platform.bbox_top > INFO_HEIGHT {
 	y = platform.bbox_top;
+}
+
+// Dash
+if (dashing <= 0 and canDash and keyJump and canJump <= 0) {
+	if (!keyLeft and !keyRight and !keyUp and !keyDown)
+		dashDirection = 180 * (1 - facing * 2);	
+	else
+		dashDirection = point_direction(0,0,keyRight-keyLeft,keyDown-keyUp);
+	dashing = dashAmount;
+	canDash = false;
+}
+if (dashing > 0) {
+	var _amount = lerp(dashSpdEnd, dashSpdStart, dashing / dashAmount);
+	hsp = lengthdir_x(_amount, dashDirection);
+	vsp = lengthdir_y(_amount, dashDirection);
+	dashing--;	
 }
 
 // Set Speeds
@@ -58,6 +80,7 @@ if platform != noone and (y <= platform.bbox_top or (vsp > 0 and noPlatform <= 0
 	vsp = 0;
 	knockback = 0;
 	canJump = jump_buffer;
+	canDash = true;
 	//if (_landed)
 		//audio_play_sound(snLand,1,false);
 } else platform = noone;
@@ -71,3 +94,6 @@ y = clamp(y,INFO_HEIGHT+8,room_height);
 
 if (y == room_height)
 	vsp = jumpspd;
+	
+// Animation
+image_xscale = facing;
