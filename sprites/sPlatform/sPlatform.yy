@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Platform",
-    "path": "folders/Platform.yy",
+    "name": "PlatformHelper",
+    "path": "folders/Platform/PlatformHelper.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Platform",
-    "path": "folders/Platform.yy",
+    "name": "PlatformHelper",
+    "path": "folders/Platform/PlatformHelper.yy",
   },
   "parentObjectId": null,
   "persistent": true,

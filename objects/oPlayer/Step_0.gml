@@ -49,6 +49,10 @@ if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 	dashing = dashAmount;
 	canDash = false;
 	ScreenShake(10, 10);
+	repeat(20) {
+		CreateParticle(x,y,oParticle,random(360),10,random_range(0.05,0.1),random_range(0.1,5),180+dashDirection+random_range(-100,100));	
+	}
+	image_angle = 360*((dashDirection+90) % 360 >= 90);
 }
 if (dashing > 0) {
 	var _amount = lerp(dashSpdStart, dashSpdEnd, animcurve_channel_evaluate(dashCurve, 1 - dashing / dashAmount));
@@ -74,7 +78,7 @@ if platform == noone
 	platform = collision_line(bbox_right,y+sign(vsp_final),bbox_right+hsp_final,y+vsp_final,oPlatform,false,false);
 x += hsp_final;
 
-if platform != noone and (y <= platform.bbox_top or vsp > 0) {
+if platform != noone and (y <= platform.bbox_top or vsp >= 0) {
 	y = platform.bbox_top;
 	vsp_final = 0;
 	vsp = 0;
@@ -83,7 +87,7 @@ if platform != noone and (y <= platform.bbox_top or vsp > 0) {
 	canDash = true;
 	//if (_landed)
 		//audio_play_sound(snLand,1,false);
-} else platform = noone;
+}
 
 y += vsp_final;
 #endregion
@@ -108,14 +112,23 @@ image_xscale = facing;
 if (dashing > 0) {
 	mask_index = sPlayerDash;	
 	sprite_index = sPlayerDash;
-	image_angle = dashDirection-90;
+	image_angle = ApproachCircleEase(image_angle,dashDirection-90+360,-50,0.2) %360;
+	if (dashing % 2 == 0) {
+		with(instance_create_depth(x,y,depth+1,oAfterImage)) {
+			sprite_index = other.sprite_index;
+			image_index = other.image_index;
+			image_angle = other.image_angle;
+			image_xscale = other.image_xscale;
+			image_blend = c_grey;
+		}
+	}
 } else {
-	image_angle = 0;
+	image_angle = ApproachFade(image_angle,360*((dashDirection) % 360 > 90),50,0.8);
 	mask_index = sPlayerIdle;
 	if (knockback != 0) {
 		sprite_index = sPlayerHurt;
 	} else if (platform != noone) {
-		if (hsp == 0) {
+		if (_move == 0) {
 			sprite_index = sPlayerIdle;	
 		} else {
 			sprite_index = sPlayerRun;	

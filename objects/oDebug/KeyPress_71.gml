@@ -3,4 +3,5 @@
 
 
 EnableLive;
-GeneratePlatforms(1, 10);
+global.level++;
+GeneratePlatforms(global.level, 5);
