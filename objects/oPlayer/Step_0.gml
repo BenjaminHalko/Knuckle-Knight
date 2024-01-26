@@ -34,6 +34,8 @@ if(canJump-- > 0 and jumpTimer > 0) {
 jumpTimer--;
 
 // Moving Platform
+if (platform != noone and !instance_exists(platform))
+	platform = noone;
 if platform != noone and platform.bbox_bottom < room_height and platform.bbox_top > INFO_HEIGHT {
 	y = platform.bbox_top;
 }
