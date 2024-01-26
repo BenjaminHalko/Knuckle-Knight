@@ -56,10 +56,12 @@ if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 	image_angle = 360*((dashDirection+90) % 360 >= 90);
 	dashInControl = true;
 }
-if (dashing > 0 and dashInControl) {
-	var _amount = lerp(dashSpdStart, dashSpdEnd, animcurve_channel_evaluate(dashCurve, 1 - dashing / dashAmount));
-	hsp = lengthdir_x(_amount, dashDirection);
-	vsp = lengthdir_y(_amount, dashDirection);
+if (dashing > 0) {
+	if (dashInControl) {
+		var _amount = lerp(dashSpdStart, dashSpdEnd, animcurve_channel_evaluate(dashCurve, 1 - dashing / dashAmount));
+		hsp = lengthdir_x(_amount, dashDirection);
+		vsp = lengthdir_y(_amount, dashDirection);
+	}
 	dashing--;
 	if (dashing == 0) {
 		vsp = max(jumpspd/2,vsp);	

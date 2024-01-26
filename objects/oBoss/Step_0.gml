@@ -49,11 +49,11 @@ if (!closed) {
 		if (oPlayer.dashing > 0) {
 			if (oPlayer.dashMaxCurve == -1) {
 				oPlayer.dashMaxCurve = 20;
-				oPlayer.dashing = 20;
+				oPlayer.dashing = 120;
 			}
 			oPlayer.dashInControl = false;
 			oPlayer.dashMaxCurve += 0.1;
-			oPlayer.dashDirection = ApproachCircleEase(oPlayer.dashDirection,point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y),20,0.7);
+			oPlayer.dashDirection = ApproachCircleEase(oPlayer.dashDirection,point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y),oPlayer.dashMaxCurve,0.5);
 			oPlayer.hsp = lengthdir_x(14,oPlayer.dashDirection);
 			oPlayer.vsp = lengthdir_y(14,oPlayer.dashDirection);
 			
@@ -63,9 +63,13 @@ if (!closed) {
 				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk * 1.5;
 				damaged = true;
 				damageTimer = 60;
+				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;
+				oPlayer.angle = 0;
 			}
 		}
+	} else {
+		oPlayer.dashMaxCurve = -1;	
 	}
 }
 
