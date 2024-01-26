@@ -13,6 +13,7 @@ jump_buffer = 10;
 dashSpdStart = 16;
 dashSpdEnd = 4;
 dashAmount = 10;
+dashMaxCurve = 0;
 
 // Movement
 hsp = 0;

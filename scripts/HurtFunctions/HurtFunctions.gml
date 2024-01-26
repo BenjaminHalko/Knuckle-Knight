@@ -1,4 +1,4 @@
-function HurtPlayer(_player, _takeDamage=false) {
+function HurtPlayer(_player, _takeDamage=true) {
 	if (live_call(_player, _takeDamage)) return live_result;
 	if (_player.dashing <= 0 or object_index == oBoss) {
 		_player.knockback = sign(_player.x-x) * _player.maxwalk;

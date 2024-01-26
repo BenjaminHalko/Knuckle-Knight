@@ -22,12 +22,24 @@ switch (state) {
 	} break;
 	case BOSSSTATE.SHOCKWAVE: {
 		closed = true;
-		_targetAngle = _playerDir;
 		if (image_index >= 1) {
-			chargeWindup = ApproachFade(chargeWindup, 1, 0.1, 0.8);	
+			chargeWindup = ApproachFade(chargeWindup, 1, 0.05, 0.8);	
 		}
-		x = xstart - lengthdir_x(chargeWindup*20, _playerDir);
-		y = ystart - lengthdir_y(chargeWindup*20, _playerDir);
+		if (chargeWindup < 0.99) {
+			x = xstart - lengthdir_x(chargeWindup*32, _playerDir);
+			y = ystart - lengthdir_y(chargeWindup*32, _playerDir);
+			playerDir = _playerDir;
+		} else {
+			x += lengthdir_x(32, playerDir);
+			y += lengthdir_y(32, playerDir);
+			with(instance_create_depth(x,y,depth+1,oAfterImage)) {
+				sprite_index = other.sprite_index;
+				image_index = other.image_index;
+				image_angle = other.angle;
+				image_blend = c_red;
+			}
+		}
+		_targetAngle = playerDir;
 	} break;
 }
 
@@ -35,8 +47,12 @@ switch (state) {
 if (!closed) {
 	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,110)) {
 		if (oPlayer.dashing > 0) {
-			oPlayer.dashing = 2;
+			if (oPlayer.dashMaxCurve == -1) {
+				oPlayer.dashMaxCurve = 20;
+				oPlayer.dashing = 20;
+			}
 			oPlayer.dashInControl = false;
+			oPlayer.dashMaxCurve += 0.1;
 			oPlayer.dashDirection = ApproachCircleEase(oPlayer.dashDirection,point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y),20,0.7);
 			oPlayer.hsp = lengthdir_x(14,oPlayer.dashDirection);
 			oPlayer.vsp = lengthdir_y(14,oPlayer.dashDirection);
@@ -47,6 +63,7 @@ if (!closed) {
 				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk * 1.5;
 				damaged = true;
 				damageTimer = 60;
+				oPlayer.dashMaxCurve = -1;
 			}
 		}
 	}

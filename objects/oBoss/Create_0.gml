@@ -29,4 +29,5 @@ surface = surface_create(sprite_width, sprite_height);
 
 uFlash = shader_get_uniform(shWhite, "percent");
 
+playerDir = 0;
 chargeWindup = 0;
