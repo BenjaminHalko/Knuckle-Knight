@@ -8,7 +8,7 @@ var _roomInfo = room_get_info(room,false,false,true,true).layers;
 
 for(var i = 0; i < array_length(_roomInfo); i++) {
 	var _layer = _roomInfo[i];
-	if (string_starts_with(_layer.name, "Platforms_")) {
+	if (string_starts_with(_layer.name, "Platform_")) {
 		var _maxHeight = 0;
 		var _data = [];
 		for(var j = 0; j < array_length(_layer.elements); j++) {
@@ -17,7 +17,8 @@ for(var i = 0; i < array_length(_roomInfo); i++) {
 			array_push(_data, {
 				x: _element.x,
 				y: _element.y-room_height,
-				image_xscale: _element.image_xscale
+				image_xscale: _element.image_xscale,
+				object_index: _element.object_index
 			});
 		}
 		array_push(platforms, {
