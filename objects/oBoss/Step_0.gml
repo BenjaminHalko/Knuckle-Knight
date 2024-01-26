@@ -1,11 +1,14 @@
 /// @desc
 
+EnableLive;
 
 // Animate
-pulse = ApproachFade(pulse,0,0.1,0.8);
+pulse = ApproachFade(pulse,0,0.05,0.8);
 if (global.audioTick) {
 	pulse = 1;	
 }
 
-image_xscale = pulse + 1;
-image_yscale = image_xscale;
+scale = pulse*0.4 + 1;
+angle = ApproachFade(angle,10*(1 - (global.audioBeat % 2 == 0)*2),50,0.7);
+
+if (!surface_exists(surface)) surface = surface_create(sprite_width, sprite_height);

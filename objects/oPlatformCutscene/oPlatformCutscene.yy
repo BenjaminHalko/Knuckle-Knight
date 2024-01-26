@@ -32,8 +32,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "sPlatformPlaceable",
-    "path": "sprites/sPlatformPlaceable/sPlatformPlaceable.yy",
+    "name": "sPlatformSmall",
+    "path": "sprites/sPlatformSmall/sPlatformSmall.yy",
   },
   "spriteMaskId": null,
   "visible": true,

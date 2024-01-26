@@ -2,10 +2,6 @@
 
 EnableLive;
 
-sprite_index = sPlatform;
-image_xscale = image_xscale * (147/449);
-image_yscale = image_yscale * (147/449);
-
 yPos = y;
 yPosTarget = ystart;
 activePercent = 0;
