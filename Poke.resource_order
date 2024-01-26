@@ -25,6 +25,7 @@
     {"name":"Platform","order":6,"path":"folders/Platform.yy",},
     {"name":"Player","order":5,"path":"folders/Player.yy",},
     {"name":"Sprites","order":1,"path":"folders/Player/Sprites.yy",},
+    {"name":"GUI","order":11,"path":"folders/GUI.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDebug","order":6,"path":"objects/oDebug/oDebug.yy",},
@@ -56,6 +57,7 @@
     {"name":"url_encode","order":10,"path":"scripts/url_encode/url_encode.yy",},
     {"name":"FirebaseREST_HTTP_Success_RealTime","order":6,"path":"scripts/FirebaseREST_HTTP_Success_RealTime/FirebaseREST_HTTP_Success_RealTime.yy",},
     {"name":"sPlatform","order":1,"path":"sprites/sPlatform/sPlatform.yy",},
+    {"name":"fFont","order":1,"path":"fonts/fFont/fFont.yy",},
     {"name":"FirebaseREST_RealTime_getWriteHTTPMethod","order":8,"path":"scripts/FirebaseREST_RealTime_getWriteHTTPMethod/FirebaseREST_RealTime_getWriteHTTPMethod.yy",},
     {"name":"rGame","order":4,"path":"rooms/rGame/rGame.yy",},
     {"name":"FirebaseREST_asyncCall_RealTime","order":2,"path":"scripts/FirebaseREST_asyncCall_RealTime/FirebaseREST_asyncCall_RealTime.yy",},

@@ -4,7 +4,7 @@
 #macro RESH 360
 #macro MAXHEALTH 5
 #macro SAVEFILE "save.ini"
-#macro INFO_HEIGHT 26
+#macro INFO_HEIGHT 48
 
 #macro BROWSER (global.ostype == OS.OSBROWSER)
 #macro OPERA (global.ostype == OS.OSOPERA)
