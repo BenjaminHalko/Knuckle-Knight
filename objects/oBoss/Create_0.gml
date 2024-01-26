@@ -31,3 +31,8 @@ uFlash = shader_get_uniform(shWhite, "percent");
 
 playerDir = 0;
 chargeWindup = 0;
+
+idleX = 0;
+idleY = 0;
+idleWait = 0;
+idleDirection = 0;

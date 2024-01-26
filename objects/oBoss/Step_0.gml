@@ -17,8 +17,25 @@ switch (state) {
 			}
 			_targetAngle = 10*(1 - (global.audioBeat % 2 == 0)*2);
 		}
+		
 		xstart = x;
 		ystart = y;
+		
+		if (!damaged) {
+			idleWait--;
+			if (idleWait <= 0 or point_distance(x,y,idleX,idleY) < 100) {
+				var _dir = _playerDir+180+random_range(-20,20);
+				var _len = random_range(20,100);
+				idleX = oCamera.x+lengthdir_x(_len*2,_dir);
+				idleY = oCamera.y+lengthdir_y(_len*0.8,_dir);
+				idleWait = 30;
+				idleWait = 30;
+			}
+			var _spd = lerp(3,2,median(max(0,point_distance(x,y,oPlayer.x,oPlayer.y)-80)/120,0,1));
+			idleDirection = ApproachCircleEase(idleDirection,point_direction(x,y,idleX,idleY),2,0.1);
+			x += lengthdir_x(_spd,idleDirection);
+			y += lengthdir_y(_spd,idleDirection);
+		}
 	} break;
 	case BOSSSTATE.SHOCKWAVE: {
 		closed = true;
