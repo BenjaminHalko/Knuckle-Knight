@@ -4,6 +4,7 @@ EnableLive;
 
 yPos = y;
 yPosTarget = ystart;
+yPosStart = 0;
 activePercent = 0;
 active = false;
 waveOffset = random(1);
@@ -16,6 +17,10 @@ uTexelY = shader_get_uniform(shPlatformFade, "texelY");
 uTexelHeight = shader_get_uniform(shPlatformFade, "texelHeight");
 
 
+
+
+
+
 // Get spikes
 var _list = ds_list_create();
 numSpikes = instance_place_list(x,y,pHurt,_list,false);
@@ -25,7 +30,16 @@ for(var i = 0; i < numSpikes; i++) {
 }
 ds_list_destroy(_list);
 
+
 if (object_index == oPlatformCutscene) {
-	yPos = room_height - 20;
+	yPos = oCamera.y + 300;
 	y = yPos;
+	yPosStart = y;
+}
+
+var _y = (y - ystart);
+for(var i = 0; i < numSpikes; i++) {
+	with(spikes[i]) {
+		y = ystart + _y;	
+	}
 }

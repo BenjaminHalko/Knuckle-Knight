@@ -3,5 +3,9 @@
 
 
 EnableLive;
-global.level++;
-GeneratePlatforms(global.level, 5);
+
+if (array_length(oPlatformGenerator.platformsToGenerate) == 0) {
+	global.level++;
+	GeneratePlatforms(global.level, 5);
+} else
+	NextPlatforms();

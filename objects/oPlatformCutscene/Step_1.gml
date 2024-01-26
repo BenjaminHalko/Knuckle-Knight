@@ -3,7 +3,9 @@
 EnableLive;
 
 if (object_index == oPlatformCutscene) {
-	yPos = ApproachFade(yPos,yPosTarget,10,0.7);
+	var _spd = 10;
+	if (yPosTarget == ystart) _spd = (yPosTarget - yPosStart) * 0.05;
+	yPos = ApproachFade(yPos,yPosTarget,_spd,0.7);
 	if (yPos == yPosTarget) {
 		if (yPosTarget == ystart)
 			instance_change(oPlatform,false);

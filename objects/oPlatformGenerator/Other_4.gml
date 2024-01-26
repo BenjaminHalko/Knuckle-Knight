@@ -31,3 +31,5 @@ EnableLive;
 	}
 
 	numLayouts = array_length(platforms);
+	
+	GeneratePlatforms(1,5);
