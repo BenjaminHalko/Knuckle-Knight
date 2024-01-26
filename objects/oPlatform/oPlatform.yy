@@ -3,10 +3,7 @@
   "resourceVersion": "1.0",
   "name": "oPlatform",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -14,7 +11,10 @@
     "name": "Platform",
     "path": "folders/Platform.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oPlatformCutscene",
+    "path": "objects/oPlatformCutscene/oPlatformCutscene.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -33,8 +33,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "sPlatform",
-    "path": "sprites/sPlatform/sPlatform.yy",
+    "name": "sPlatformPlaceable",
+    "path": "sprites/sPlatformPlaceable/sPlatformPlaceable.yy",
   },
   "spriteMaskId": null,
   "visible": true,

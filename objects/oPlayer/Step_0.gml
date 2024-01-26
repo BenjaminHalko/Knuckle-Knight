@@ -52,7 +52,7 @@ if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 	repeat(20) {
 		CreateParticle(x,y,oParticle,random(360),10,random_range(0.05,0.1),random_range(0.1,5),180+dashDirection+random_range(-100,100));	
 	}
-	image_angle = 360*((dashDirection+90) % 360 >= 90);
+	image_angle = 360*((dashDirection+90) % 360 >= 90);	
 }
 if (dashing > 0) {
 	var _amount = lerp(dashSpdStart, dashSpdEnd, animcurve_channel_evaluate(dashCurve, 1 - dashing / dashAmount));
@@ -73,9 +73,9 @@ vsp_final -= vsp_f;
 
 #region Collision
 var _landed = platform == noone;
-platform = collision_line(bbox_left,y+sign(vsp_final),bbox_left+hsp_final,y+vsp_final,oPlatform,false,false);
+platform = collision_line(bbox_left,y+sign(vsp_final),bbox_left+hsp_final,y+vsp_final+1,oPlatform,false,false);
 if platform == noone
-	platform = collision_line(bbox_right,y+sign(vsp_final),bbox_right+hsp_final,y+vsp_final,oPlatform,false,false);
+	platform = collision_line(bbox_right,y+sign(vsp_final),bbox_right+hsp_final,y+vsp_final+1,oPlatform,false,false);
 x += hsp_final;
 
 if platform != noone and (y <= platform.bbox_top or vsp >= 0) {
@@ -112,14 +112,14 @@ image_xscale = facing;
 if (dashing > 0) {
 	mask_index = sPlayerDash;	
 	sprite_index = sPlayerDash;
-	image_angle = ApproachCircleEase(image_angle,dashDirection-90+360,-50,0.2) %360;
+	image_angle = dashDirection+90;	
 	if (dashing % 2 == 0) {
 		with(instance_create_depth(x,y,depth+1,oAfterImage)) {
 			sprite_index = other.sprite_index;
 			image_index = other.image_index;
 			image_angle = other.image_angle;
 			image_xscale = other.image_xscale;
-			image_blend = c_grey;
+			image_blend = c_aqua;
 		}
 	}
 } else {
@@ -134,10 +134,13 @@ if (dashing > 0) {
 			sprite_index = sPlayerRun;	
 		}
 	} else {
-		if (vsp < 0) {
-			sprite_index = sPlayerJump;	
-		} else {
-			sprite_index = sPlayerFall;
+		if (sprite_index != sPlayerJump and sprite_index != sPlayerAir) {
+			if (vsp < 0) {
+				sprite_index = sPlayerJump;
+				image_index = 0;
+			} else {
+				sprite_index = sPlayerAir;
+			}
 		}
 	}
 }

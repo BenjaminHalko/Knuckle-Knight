@@ -2,15 +2,10 @@
 
 EnableLive;
 
-call_later(1, time_source_units_frames, function() {
-	
 	platforms = [];
-
 	var _roomInfo = room_get_info(room,false,false,true,true).layers;
-	
 	for(var i = 0; i < array_length(_roomInfo); i++) {
 		var _layer = _roomInfo[i];
-		layer_set_visible(_layer.name, true);
 		if (string_starts_with(_layer.name, "Platform_")) {
 			var _maxHeight = 0;
 			var _data = [];
@@ -18,7 +13,7 @@ call_later(1, time_source_units_frames, function() {
 				var _element = layer_instance_get_instance(_layer.elements[j].id);
 				_maxHeight = min(_maxHeight, _element.y-room_height);
 				array_push(_data, {
-					x: _element.x,
+					x: _element.x-room_width/2,
 					y: _element.y-room_height,
 					image_xscale: _element.image_xscale,
 					object_index: _element.object_index
@@ -36,5 +31,3 @@ call_later(1, time_source_units_frames, function() {
 	}
 
 	numLayouts = array_length(platforms);
-
-});
