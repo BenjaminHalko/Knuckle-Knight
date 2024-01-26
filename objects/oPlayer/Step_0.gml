@@ -12,7 +12,8 @@ if (dashing <= 0) {
 	if (_move != 0)
 		facing = sign(_move);
 	if knockback != 0 {
-		hsp = median(-maxwalk,maxwalk,hsp+sign(knockback)*8);
+		knockback = Approach(knockback, maxwalk*sign(knockback),0.01);
+		hsp = knockback;
 		keyLeft = 0;
 		keyRight = 0;
 	} else hsp = median(-maxwalk,maxwalk,hsp+(keyRight - keyLeft)*walkspd);
@@ -52,13 +53,17 @@ if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 	repeat(20) {
 		CreateParticle(x,y,oParticle,random(360),10,random_range(0.05,0.1),random_range(0.1,5),180+dashDirection+random_range(-100,100));	
 	}
-	image_angle = 360*((dashDirection+90) % 360 >= 90);	
+	image_angle = 360*((dashDirection+90) % 360 >= 90);
+	dashInControl = true;
 }
-if (dashing > 0) {
+if (dashing > 0 and dashInControl) {
 	var _amount = lerp(dashSpdStart, dashSpdEnd, animcurve_channel_evaluate(dashCurve, 1 - dashing / dashAmount));
 	hsp = lengthdir_x(_amount, dashDirection);
 	vsp = lengthdir_y(_amount, dashDirection);
 	dashing--;
+	if (dashing == 0) {
+		vsp = max(jumpspd/2,vsp);	
+	}
 }
 
 // Set Speeds

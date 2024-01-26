@@ -10,9 +10,9 @@ maxwalk = 3.8;
 jumpspd = -12;
 maxvspd = 12;
 jump_buffer = 10;
-dashSpdStart = 10;
-dashSpdEnd = 5;
-dashAmount = 15;
+dashSpdStart = 16;
+dashSpdEnd = 4;
+dashAmount = 10;
 
 // Movement
 hsp = 0;
@@ -24,6 +24,7 @@ vsp_final = 0;
 
 dashDirection = 0;
 dashing = 0;
+dashInControl = true;
 
 canJump = 0;
 canDash = false;
