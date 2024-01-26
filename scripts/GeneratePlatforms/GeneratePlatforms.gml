@@ -4,7 +4,7 @@ function GeneratePlatforms(_seed, _amount) {
 	layer_destroy_instances("GeneratedSpikes");
 	with(oPlatformGenerator) {
 		random_set_seed(_seed);
-		var _y = -room_height/4;
+		var _y = -room_height/2;
 		for(var i = 0; i < _amount; i++) {
 			var _index = irandom(numLayouts-1);
 			var _scale = choose(1,-1);
