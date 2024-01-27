@@ -144,7 +144,7 @@ switch (state) {
 				if (image_speed == 0 and sprite_index != sBossGun) {
 					sprite_index = sBossGun;
 					image_speed = 1;
-					timer = 45;
+					timer = 30;
 					
 				}
 				
@@ -155,11 +155,11 @@ switch (state) {
 				if (sprite_index == sBossGun) {
 					if (--timer <= 0) {
 						angle -= 50 * gunSide;
-						timer = 30;
+						timer = 40;
 						gunKnockback = 1;
 						gunDir = _targetAngle;
 						gunAmount++;
-						if (gunAmount >= 3) timer = 40;
+						if (gunAmount >= 3) timer = 45;
 						with(instance_create_depth(x,y,depth-1,oEvilHands)) {
 							image_angle = _targetAngle-90;
 							direction = _targetAngle;
