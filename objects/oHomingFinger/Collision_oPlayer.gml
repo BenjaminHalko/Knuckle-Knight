@@ -7,5 +7,5 @@ if (oBoss.timer > 0) {
 	event_inherited();
 	oBoss.timer -= 1.5;
 	if (oPlayer.invincibility > 0)
-		oBoss.timer -= 1;
+		oBoss.timer -= 2;
 }
