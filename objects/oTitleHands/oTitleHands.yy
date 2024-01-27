@@ -1,16 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oCamera",
+  "name": "oTitleHands",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Camera",
-    "path": "folders/Global/Camera.yy",
+    "name": "Title Hands",
+    "path": "folders/Title/Title Hands.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -28,7 +27,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "sTitleHands",
+    "path": "sprites/sTitleHands/sTitleHands.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

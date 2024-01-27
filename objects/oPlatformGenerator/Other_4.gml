@@ -1,7 +1,7 @@
 /// @desc
 
 EnableLive;
-
+if (room != rTitle and room != rInit) {
 	platforms = [];
 	var _roomInfo = room_get_info(room,false,false,true,true).layers;
 	for(var i = 0; i < array_length(_roomInfo); i++) {
@@ -33,3 +33,4 @@ EnableLive;
 	numLayouts = array_length(platforms);
 	
 	GeneratePlatforms(1,5);
+}
