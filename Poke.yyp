@@ -66,6 +66,7 @@
     {"id":{"name":"FirebaseREST_asyncFunction_RealTime","path":"scripts/FirebaseREST_asyncFunction_RealTime/FirebaseREST_asyncFunction_RealTime.yy",},},
     {"id":{"name":"GMLive_roomLoader","path":"scripts/GMLive_roomLoader/GMLive_roomLoader.yy",},},
     {"id":{"name":"sEvilHands","path":"sprites/sEvilHands/sEvilHands.yy",},},
+    {"id":{"name":"BossFunctions","path":"scripts/BossFunctions/BossFunctions.yy",},},
     {"id":{"name":"ParticleFunctions","path":"scripts/ParticleFunctions/ParticleFunctions.yy",},},
     {"id":{"name":"FirebaseREST_HTTP_Failed_RealTime","path":"scripts/FirebaseREST_HTTP_Failed_RealTime/FirebaseREST_HTTP_Failed_RealTime.yy",},},
     {"id":{"name":"oBeatController","path":"objects/oBeatController/oBeatController.yy",},},

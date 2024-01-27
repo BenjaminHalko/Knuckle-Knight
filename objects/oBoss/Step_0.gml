@@ -82,11 +82,14 @@ switch (state) {
 		}
 		_targetAngle = playerDir;
 	} break;
+	case BOSSSTATE.LASER: {
+		moveToPoint(room_width/2,room_height/4);
+	} break;
 }
 
 // Damaged
 if (!closed) {
-	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,110)) {
+	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,40)) {
 		if (oPlayer.dashing > 0) {
 			if (oPlayer.dashMaxCurve == -1) {
 				oPlayer.dashMaxCurve = 20;
@@ -113,6 +116,13 @@ if (!closed) {
 		oPlayer.dashMaxCurve = -1;	
 	}
 }
+
+if (state != BOSSSTATE.IDLE and !damaged and !oPlayer.dashing) {
+	if (place_meeting(x,y,oPlayer)) {
+		HurtPlayer(oPlayer.id);	
+	}
+}
+	
 
 // Animate
 pulse = ApproachFade(pulse,0,0.05,0.8);

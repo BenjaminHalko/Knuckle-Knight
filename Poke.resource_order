@@ -36,6 +36,7 @@
     {"name":"FirebaseListenerUserFunctions_RealTime","order":2,"path":"scripts/FirebaseListenerUserFunctions_RealTime/FirebaseListenerUserFunctions_RealTime.yy",},
     {"name":"FirebaseREST_asyncFunction_RealTime","order":3,"path":"scripts/FirebaseREST_asyncFunction_RealTime/FirebaseREST_asyncFunction_RealTime.yy",},
     {"name":"GMLive_roomLoader","order":2,"path":"scripts/GMLive_roomLoader/GMLive_roomLoader.yy",},
+    {"name":"BossFunctions","order":3,"path":"scripts/BossFunctions/BossFunctions.yy",},
     {"name":"ParticleFunctions","order":3,"path":"scripts/ParticleFunctions/ParticleFunctions.yy",},
     {"name":"FirebaseREST_HTTP_Failed_RealTime","order":5,"path":"scripts/FirebaseREST_HTTP_Failed_RealTime/FirebaseREST_HTTP_Failed_RealTime.yy",},
     {"name":"oBeatController","order":10,"path":"objects/oBeatController/oBeatController.yy",},

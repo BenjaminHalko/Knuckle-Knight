@@ -2,7 +2,8 @@ EnableLive;
 
 enum BOSSSTATE {
 	IDLE,
-	SHOCKWAVE
+	SHOCKWAVE,
+	LASER
 }
 
 state = BOSSSTATE.IDLE;
@@ -28,6 +29,8 @@ offsetDir = point_direction(0,0,sprite_xoffset,sprite_yoffset);
 surface = surface_create(sprite_width, sprite_height);
 
 uFlash = shader_get_uniform(shWhite, "percent");
+
+spd = 16;
 
 playerDir = 0;
 chargeWindup = 0;
