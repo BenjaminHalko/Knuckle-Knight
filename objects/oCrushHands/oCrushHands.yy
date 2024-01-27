@@ -12,7 +12,10 @@
     "name": "Crush Hands",
     "path": "folders/Hurt/Crush Hands.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "pHurt",
+    "path": "objects/pHurt/pHurt.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

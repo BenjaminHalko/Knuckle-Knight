@@ -15,7 +15,7 @@ if (global.death) {
 	}
 }
 
-if (hp <= maxHP-1) {
+if (hp <= 0) {
 	dead = true;
 	state = BOSSSTATE.DEAD;
 	
@@ -290,7 +290,7 @@ if (!closed) {
 				damaged = true;
 				hp--;
 				damageTimer = 40;
-				attackWait = max(5, attackWait);
+				attackWait = min(30, attackWait);
 				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;
