@@ -200,7 +200,7 @@ switch (state) {
 						with(instance_create_depth(x,y,depth-1,oEvilHands)) {
 							image_angle = _targetAngle-90;
 							direction = _targetAngle;
-							speed = 15;
+							speed = 10;
 							image_xscale = 0.4 * other.image_xscale;
 							image_yscale = 0.4;
 						}
