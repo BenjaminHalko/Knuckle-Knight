@@ -6,7 +6,9 @@ if (sprite_index == sBoss or sprite_index == sBossFist) {
 	surface_set_target(surface);
 	draw_clear_alpha(c_black,0);
 	draw_sprite(sprite_index,image_index,xOffset,yOffset);
-	if (sprite_index == sBoss or image_index < 2) {
+	if (eyeClosed) {
+		draw_sprite(sBossEyeClosed,0,xOffset+random(1),yOffset+random(1));	
+	} else if (sprite_index == sBoss or image_index < 2) {
 		draw_sprite(sBossEye,2,xOffset,yOffset);
 		var _dir = point_direction(x,y,oPlayer.x,oPlayer.y-16)-angle;
 		var _len = min(5, point_distance(x,y,oPlayer.x,oPlayer.y-16));

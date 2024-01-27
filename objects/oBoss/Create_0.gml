@@ -4,7 +4,8 @@ enum BOSSSTATE {
 	IDLE,
 	SHOCKWAVE,
 	LASER,
-	GUN
+	GUN,
+	FINGER
 }
 
 state = BOSSSTATE.IDLE;
@@ -49,3 +50,5 @@ idleX = 0;
 idleY = 0;
 idleWait = 0;
 idleDirection = 0;
+
+eyeClosed = false;

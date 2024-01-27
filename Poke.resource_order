@@ -31,6 +31,7 @@
     {"name":"Sprites","order":8,"path":"folders/Platform/Sprites.yy",},
     {"name":"Player","order":5,"path":"folders/Player.yy",},
     {"name":"Sprites","order":1,"path":"folders/Player/Sprites.yy",},
+    {"name":"HomingFinger","order":6,"path":"folders/Hurt/HomingFinger.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDebug","order":6,"path":"objects/oDebug/oDebug.yy",},
@@ -88,6 +89,8 @@
     {"name":"rTest","order":9,"path":"rooms/rTest/rTest.yy",},
     {"name":"shPlatformFade","order":2,"path":"shaders/shPlatformFade/shPlatformFade.yy",},
     {"name":"GMLiveAPI_js","order":4,"path":"scripts/GMLiveAPI_js/GMLiveAPI_js.yy",},
+    {"name":"sBossEyeClosed","order":4,"path":"sprites/sBossEyeClosed/sBossEyeClosed.yy",},
+    {"name":"oHomingFinger","order":1,"path":"objects/oHomingFinger/oHomingFinger.yy",},
     {"name":"rInit","order":2,"path":"rooms/rInit/rInit.yy",},
     {"name":"GMLive_compiler","order":1,"path":"scripts/GMLive_compiler/GMLive_compiler.yy",},
     {"name":"FirebaseREST_Database_ListResquest_Builder","order":4,"path":"scripts/FirebaseREST_Database_ListResquest_Builder/FirebaseREST_Database_ListResquest_Builder.yy",},

@@ -5,6 +5,7 @@ EnableLive;
 if (keyboard_check_pressed(ord("U"))) state = BOSSSTATE.SHOCKWAVE;
 if (keyboard_check_pressed(ord("Y"))) state = BOSSSTATE.LASER;
 if (keyboard_check_pressed(ord("I"))) state = BOSSSTATE.GUN;
+if (keyboard_check_pressed(ord("O"))) state = BOSSSTATE.SIDECRUSH;
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
 var _targetAngle = 0;
@@ -114,8 +115,6 @@ switch (state) {
 		}
 	} break;
 	case BOSSSTATE.GUN: {
-		
-		
 		if (gunSide == 0) gunSide = choose(1,-1);
 		var _x = room_width/2+(room_width/2-100)*gunSide;
 		var _y = room_height/2-30;
@@ -169,6 +168,29 @@ switch (state) {
 						}
 					}
 				}
+		}
+	} break;
+	case BOSSSTATE.FINGER: {
+		var _x = room_width/2;
+		var _y = room_height/4;
+		if (!closed) {
+			moveToPoint(_x, _y);
+			if (x == _x and y == _y) {
+				closed = true;
+				var _finger = instance_create_depth(x,y-10,depth+1,oHomingFinger);
+				_finger.trail = false;
+				_finger.image_angle = 90;
+				_finger.direction = 90;
+				_finger.speed = 4;
+				timer = 60 * 3;
+			}
+		} else {
+			x = _x + random_range(-3,3);	
+			y = _y + random_range(-3,3);
+			timer--;
+			if (timer <= 0 and !instance_exists(oHomingFinger)) {
+				state = BOSSSTATE.IDLE;	
+			}
 		}
 	} break;
 }
