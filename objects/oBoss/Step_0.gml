@@ -86,7 +86,7 @@ switch (state) {
 		} else if (!collided) {
 			x += lengthdir_x(32, playerDir);
 			y += lengthdir_y(32, playerDir);
-			x = clamp(x,10,room_width-10);
+			x = clamp(x,INFO_HEIGHT+10,room_width-10);
 			y = clamp(y,10,room_height-10);
 			with(instance_create_depth(x,y,depth+1,oAfterImage)) {
 				sprite_index = other.sprite_index;
@@ -95,7 +95,7 @@ switch (state) {
 				image_blend = c_red;
 			}
 			var _collision = (playerDir > 180 and collision_line(x,y,x+lengthdir_x(32, playerDir),y+lengthdir_y(32,playerDir),oPlatform,true,false) != noone);
-			var _boundsCollision = (x == room_width-10 or y == room_height-10 or x == 10 or y == 10);
+			var _boundsCollision = (x == room_width-10 or y == room_height-10 or x == INFO_HEIGHT+10 or y == 10);
 			if (_collision or _boundsCollision) {
 				if (_collision) {
 					while(!place_meeting(x+lengthdir_x(1, playerDir),y+lengthdir_y(1, playerDir),oPlatform)) {
