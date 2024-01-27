@@ -261,7 +261,7 @@ switch (state) {
 	case BOSSSTATE.DEAD: {
 		closed = false;
 		moveToPoint(room_width/2,room_height/3);
-		damaged = 
+		//damaged = 
 	} break;
 }
 
