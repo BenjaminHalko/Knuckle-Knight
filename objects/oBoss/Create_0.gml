@@ -26,6 +26,9 @@ yOffset = sprite_yoffset;
 offsetDist = point_distance(0,0,sprite_xoffset,sprite_yoffset);
 offsetDir = point_direction(0,0,sprite_xoffset,sprite_yoffset);
 
+laser = noone;
+laserDir = 0;
+
 surface = surface_create(sprite_width, sprite_height);
 
 uFlash = shader_get_uniform(shWhite, "percent");
