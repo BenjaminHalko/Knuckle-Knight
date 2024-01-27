@@ -20,6 +20,7 @@
     {"name":"Camera","order":7,"path":"folders/Global/Camera.yy",},
     {"name":"Effects","order":9,"path":"folders/Global/Effects.yy",},
     {"name":"Scripts","order":5,"path":"folders/Global/Scripts.yy",},
+    {"name":"Transition","order":12,"path":"folders/Global/Transition.yy",},
     {"name":"GUI","order":11,"path":"folders/GUI.yy",},
     {"name":"Hurt","order":8,"path":"folders/Hurt.yy",},
     {"name":"Crush Hands","order":7,"path":"folders/Hurt/Crush Hands.yy",},
@@ -34,7 +35,6 @@
     {"name":"Sprites","order":1,"path":"folders/Player/Sprites.yy",},
     {"name":"Title","order":13,"path":"folders/Title.yy",},
     {"name":"Title Hands","order":1,"path":"folders/Title/Title Hands.yy",},
-    {"name":"Transition","order":12,"path":"folders/Global/Transition.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDebug","order":6,"path":"objects/oDebug/oDebug.yy",},

@@ -33,6 +33,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Camera","folderPath":"folders/Global/Camera.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Effects","folderPath":"folders/Global/Effects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Global/Scripts.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Transition","folderPath":"folders/Global/Transition.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GUI","folderPath":"folders/GUI.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Hurt","folderPath":"folders/Hurt.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Crush Hands","folderPath":"folders/Hurt/Crush Hands.yy",},
@@ -47,7 +48,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Player/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Title","folderPath":"folders/Title.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Title Hands","folderPath":"folders/Title/Title Hands.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Transition","folderPath":"folders/Global/Transition.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},

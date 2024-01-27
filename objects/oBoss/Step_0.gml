@@ -15,7 +15,7 @@ if (global.death) {
 	}
 }
 
-if (hp <= 0) {
+if (hp <= maxHP-1) {
 	dead = true;
 	state = BOSSSTATE.DEAD;
 	
@@ -261,7 +261,11 @@ switch (state) {
 	case BOSSSTATE.DEAD: {
 		closed = false;
 		moveToPoint(room_width/2,room_height/3);
-		//damaged = 
+		damaged = true;
+		
+		repeat(50) {
+			
+		}
 	} break;
 }
 
@@ -286,7 +290,7 @@ if (!closed) {
 				damaged = true;
 				hp--;
 				damageTimer = 40;
-				attackWait = 1;
+				attackWait = max(30, attackWait);
 				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;

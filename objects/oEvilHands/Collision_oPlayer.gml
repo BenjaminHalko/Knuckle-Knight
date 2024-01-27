@@ -6,7 +6,8 @@
 
 
 // Inherit the parent event
-event_inherited();
-
-oPlayer.vsp = -12;
-oPlayer.hsp = 0;
+if (attack) event_inherited();
+else {
+	oPlayer.vsp = -15;
+	oPlayer.hsp = 0;
+}

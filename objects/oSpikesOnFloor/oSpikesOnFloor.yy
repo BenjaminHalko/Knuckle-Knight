@@ -13,10 +13,7 @@
     "name": "Spikes",
     "path": "folders/Hurt/Spikes.yy",
   },
-  "parentObjectId": {
-    "name": "pHurt",
-    "path": "objects/pHurt/pHurt.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
