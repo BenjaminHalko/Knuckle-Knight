@@ -82,6 +82,7 @@ switch (state) {
 				}
 				collided = true;
 				ScreenShake(60,10);
+				audio_play_sound(snCollide,1,false);
 				timer = 30;
 			}
 		} else {
@@ -100,6 +101,7 @@ switch (state) {
 			if (--timer <= 0) {
 				
 				if (!instance_exists(oLaser)) {
+					audio_play_sound(snLaser,1,false);
 					instance_create_depth(x,y,depth-1,oLaser);
 					//oLaser.image_xscale = 0;
 				} else if (oLaser.image_xscale == 20) {
@@ -160,6 +162,7 @@ switch (state) {
 						gunDir = _targetAngle;
 						gunAmount++;
 						if (gunAmount >= 3) timer = 45;
+						audio_play_sound(snHitDeep,1,false);
 						with(instance_create_depth(x,y,depth-1,oEvilHands)) {
 							image_angle = _targetAngle-90;
 							direction = _targetAngle;
@@ -225,7 +228,7 @@ switch (state) {
 
 // Damaged
 if (!closed) {
-	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,40)) {
+	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,40) and !damaged) {
 		if (oPlayer.dashing > 0) {
 			if (oPlayer.dashMaxCurve == -1) {
 				oPlayer.dashMaxCurve = 20;
@@ -243,6 +246,7 @@ if (!closed) {
 				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk * 1.5;
 				damaged = true;
 				damageTimer = 60;
+				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;
 				oPlayer.angle = 0;
@@ -273,7 +277,10 @@ if (closed) {
 	}
 } else {
 	if (sprite_index == sBossFist) {
-		image_speed = -1;	
+		if (image_speed != -1) {
+			image_speed = -1;
+			audio_play_sound(snFistOpen,1,false);
+		}
 	}
 }
 

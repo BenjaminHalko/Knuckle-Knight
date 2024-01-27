@@ -13,6 +13,7 @@ if (wait) {
 } else if (!collided) {
 	if (array_length(move_and_collide(0,10,oPlatform)) > 0) {
 		ScreenShake(10,10);
+		audio_play_sound(snCollide,1,false);
 		collided = true;
 		timer = 20;
 	}

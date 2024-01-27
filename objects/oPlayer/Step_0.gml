@@ -30,7 +30,7 @@ if(canJump-- > 0 and jumpTimer > 0) {
 	vsp = jumpspd;
 	canJump = 0;
 	jumpTimer = 0;
-	//audio_play_sound(snJump,1,false);
+	audio_play_sound(snJump,1,false);
 }
 jumpTimer--;
 
@@ -49,6 +49,7 @@ if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 		dashDirection = point_direction(0,0,keyRight-keyLeft,keyDown-keyUp);
 	dashing = dashAmount;
 	canDash = false;
+	audio_play_sound(snDash,1,false,1,0,0.5);
 	ScreenShake(10, 10);
 	repeat(20) {
 		CreateParticle(x,y,oTriangleParticle,random(360),10,random_range(0.05,0.1),random_range(0.1,5),180+dashDirection+random_range(-100,100),c_white);	
