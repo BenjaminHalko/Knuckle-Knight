@@ -291,6 +291,7 @@ if (!closed) {
 				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;
 				oPlayer.angle = 0;
+				oPlayer.canDash = true;
 			}
 		}
 	} else {
