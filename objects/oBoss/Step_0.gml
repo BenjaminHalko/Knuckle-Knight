@@ -5,6 +5,7 @@ EnableLive;
 if (global.death) {
 	closed = false;
 	state = BOSSSTATE.IDLE;
+	instance_destroy(oLaser);
 	timer = 0;
 	if (sprite_index == sBoss) {
 		image_speed = ApproachFade(image_speed,0,0.02,0.8);	

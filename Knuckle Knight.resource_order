@@ -69,6 +69,7 @@
     {"name":"GMLive_program","order":3,"path":"scripts/GMLive_program/GMLive_program.yy",},
     {"name":"GMLiveAPI","order":3,"path":"scripts/GMLiveAPI/GMLiveAPI.yy",},
     {"name":"sPlayerRun","order":1,"path":"sprites/sPlayerRun/sPlayerRun.yy",},
+    {"name":"sPlayerDie","order":8,"path":"sprites/sPlayerDie/sPlayerDie.yy",},
     {"name":"FirebaseSetup","order":2,"path":"extensions/FirebaseSetup/FirebaseSetup.yy",},
     {"name":"snHitDeep","order":8,"path":"sounds/snHitDeep/snHitDeep.yy",},
     {"name":"GMLive","order":4,"path":"scripts/GMLive/GMLive.yy",},

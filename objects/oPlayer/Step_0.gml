@@ -3,15 +3,31 @@
 EnableLive;
 
 if (global.death) {
-	deathSpd = ApproachFade(deathSpd,0,0.05,0.8);
-	image_speed = 0;
 	image_blend = c_red;
-	if (deathSpd == 0) {
-		if (visible) {
-			visible = false;
+	
+	if (sprite_index == sPlayerDie and image_index == 3) {
+		if (--deathTimer <= 0) {
+			if (visible) {
+				visible = false;
+				ScreenShake(10,60);
+				repeat(100) {
+					CreateParticle(x,y,oTriangleParticle,random(360),10,0.01,random_range(1,5),random(360),c_white);
+				}
+				with(instance_create_depth(x,y,depth+1,oAfterImage)) {
+					sprite_index = other.sprite_index;
+					image_index = other.image_index;
+					image_angle = other.image_angle;
+					image_xscale = other.image_xscale;
+					image_blend = c_red;
+					speed = 4;
+					direction = 90;
+					spd = 0.02;
+				}
+			}
 		}
-		
-		exit;
+	} else if knockback == 0 and platform != noone {
+		if (sprite_index != sPlayerDie) image_speed = 1;
+		sprite_index = sPlayerDie;
 	}
 }
 
@@ -19,6 +35,11 @@ if (global.death) {
 Input();
 
 #region Movement
+if (global.death) {
+	keyRight = 0;
+	keyLeft = 0;
+	keyJump = 0;
+}
 var _move = keyRight - keyLeft;
 if (dashing <= 0) {
 	// Horizontal
@@ -98,7 +119,7 @@ var _landed = platform == noone;
 platform = collision_line(bbox_left,y+sign(vsp_final),bbox_left+hsp_final,y+vsp_final+1,oPlatform,false,false);
 if platform == noone
 	platform = collision_line(bbox_right,y+sign(vsp_final),bbox_right+hsp_final,y+vsp_final+1,oPlatform,false,false);
-x += hsp_final * deathSpd;
+x += hsp_final;
 
 if platform != noone and (y <= platform.bbox_top or vsp >= 0) {
 	y = platform.bbox_top;
@@ -111,7 +132,7 @@ if platform != noone and (y <= platform.bbox_top or vsp >= 0) {
 		//audio_play_sound(snLand,1,false);
 }
 
-y += vsp_final * deathSpd;
+y += vsp_final;
 #endregion
 
 // Clamp Values
@@ -131,37 +152,39 @@ if (invincibility <= 0) {
 	
 // Animation
 image_xscale = facing;
-if (dashing > 0) {
-	mask_index = sPlayerDash;	
-	sprite_index = sPlayerDash;
-	image_angle = dashDirection+90;	
-	if (dashing % 2 == 0) {
-		with(instance_create_depth(x,y,depth+1,oAfterImage)) {
-			sprite_index = other.sprite_index;
-			image_index = other.image_index;
-			image_angle = other.image_angle;
-			image_xscale = other.image_xscale;
-			image_blend = c_aqua;
-		}
-	}
-} else {
-	image_angle = ApproachFade(image_angle,360*((dashDirection) % 360 > 90),50,0.8);
-	mask_index = sPlayerIdle;
-	if (knockback != 0) {
-		sprite_index = sPlayerHurt;
-	} else if (platform != noone) {
-		if (_move == 0) {
-			sprite_index = sPlayerIdle;	
-		} else {
-			sprite_index = sPlayerRun;	
+if (sprite_index != sPlayerDie) {
+	if (dashing > 0) {
+		mask_index = sPlayerDash;	
+		sprite_index = sPlayerDash;
+		image_angle = dashDirection+90;	
+		if (dashing % 2 == 0) {
+			with(instance_create_depth(x,y,depth+1,oAfterImage)) {
+				sprite_index = other.sprite_index;
+				image_index = other.image_index;
+				image_angle = other.image_angle;
+				image_xscale = other.image_xscale;
+				image_blend = c_aqua;
+			}
 		}
 	} else {
-		if (sprite_index != sPlayerJump and sprite_index != sPlayerAir) {
-			if (vsp < 0) {
-				sprite_index = sPlayerJump;
-				image_index = 0;
+		image_angle = ApproachFade(image_angle,360*((dashDirection) % 360 > 90),50,0.8);
+		mask_index = sPlayerIdle;
+		if (knockback != 0) {
+			sprite_index = sPlayerHurt;
+		} else if (platform != noone) {
+			if (_move == 0) {
+				sprite_index = sPlayerIdle;	
 			} else {
-				sprite_index = sPlayerAir;
+				sprite_index = sPlayerRun;	
+			}
+		} else {
+			if (sprite_index != sPlayerJump and sprite_index != sPlayerAir) {
+				if (vsp < 0) {
+					sprite_index = sPlayerJump;
+					image_index = 0;
+				} else {
+					sprite_index = sPlayerAir;
+				}
 			}
 		}
 	}

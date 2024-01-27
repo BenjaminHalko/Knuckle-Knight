@@ -104,6 +104,7 @@
     {"id":{"name":"oPlatformCutscene","path":"objects/oPlatformCutscene/oPlatformCutscene.yy",},},
     {"id":{"name":"GMLiveAPI","path":"scripts/GMLiveAPI/GMLiveAPI.yy",},},
     {"id":{"name":"sPlayerRun","path":"sprites/sPlayerRun/sPlayerRun.yy",},},
+    {"id":{"name":"sPlayerDie","path":"sprites/sPlayerDie/sPlayerDie.yy",},},
     {"id":{"name":"FirebaseSetup","path":"extensions/FirebaseSetup/FirebaseSetup.yy",},},
     {"id":{"name":"snHitDeep","path":"sounds/snHitDeep/snHitDeep.yy",},},
     {"id":{"name":"GMLive","path":"scripts/GMLive/GMLive.yy",},},
