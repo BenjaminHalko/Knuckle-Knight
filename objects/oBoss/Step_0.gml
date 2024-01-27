@@ -269,6 +269,7 @@ if (!closed) {
 				HurtPlayer(oPlayer.id, false);
 				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk * 1.5;
 				damaged = true;
+				attackWait = 0;
 				damageTimer = 60;
 				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
