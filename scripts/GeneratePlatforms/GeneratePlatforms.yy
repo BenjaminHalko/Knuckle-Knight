@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Platform",
-    "path": "folders/Platform.yy",
+    "name": "Helper",
+    "path": "folders/Platform/Helper.yy",
   },
 }

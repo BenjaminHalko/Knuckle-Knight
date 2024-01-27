@@ -11,30 +11,32 @@ var _fullyClosed = (sprite_index == sBossFist and image_index == 3);
 switch (state) {
 	default: {
 		closed = false;
-		if (!damaged) {
-			if (global.audioTick) {
-				pulse = 1;	
+		if (sprite_index == sBoss) {
+			if (!damaged) {
+				if (global.audioTick) {
+					pulse = 1;	
+				}
+				_targetAngle = 10*(1 - (global.audioBeat % 2 == 0)*2);
 			}
-			_targetAngle = 10*(1 - (global.audioBeat % 2 == 0)*2);
-		}
 		
-		xstart = x;
-		ystart = y;
+			xstart = x;
+			ystart = y;
 		
-		if (!damaged) {
-			idleWait--;
-			if (idleWait <= 0 or point_distance(x,y,idleX,idleY) < 100) {
-				var _dir = _playerDir+180+random_range(-20,20);
-				var _len = random_range(20,100);
-				idleX = oCamera.x+lengthdir_x(_len*2,_dir);
-				idleY = oCamera.y+lengthdir_y(_len*0.8,_dir);
-				idleWait = 30;
-				idleWait = 30;
+			if (!damaged) {
+				idleWait--;
+				if (idleWait <= 0 or point_distance(x,y,idleX,idleY) < 100) {
+					var _dir = _playerDir+180+random_range(-20,20);
+					var _len = random_range(20,100);
+					idleX = oCamera.x+lengthdir_x(_len*2,_dir);
+					idleY = oCamera.y+lengthdir_y(_len*0.8,_dir);
+					idleWait = 30;
+					idleWait = 30;
+				}
+				var _spd = lerp(3,2,median(max(0,point_distance(x,y,oPlayer.x,oPlayer.y)-80)/120,0,1));
+				idleDirection = ApproachCircleEase(idleDirection,point_direction(x,y,idleX,idleY),2,0.1);
+				x += lengthdir_x(_spd,idleDirection);
+				y += lengthdir_y(_spd,idleDirection);
 			}
-			var _spd = lerp(3,2,median(max(0,point_distance(x,y,oPlayer.x,oPlayer.y)-80)/120,0,1));
-			idleDirection = ApproachCircleEase(idleDirection,point_direction(x,y,idleX,idleY),2,0.1);
-			x += lengthdir_x(_spd,idleDirection);
-			y += lengthdir_y(_spd,idleDirection);
 		}
 	} break;
 	case BOSSSTATE.SHOCKWAVE: {
@@ -46,14 +48,36 @@ switch (state) {
 			x = xstart - lengthdir_x(chargeWindup*32, _playerDir);
 			y = ystart - lengthdir_y(chargeWindup*32, _playerDir);
 			playerDir = _playerDir;
-		} else {
+			collided = false;
+			
+		} else if (!collided) {
 			x += lengthdir_x(32, playerDir);
 			y += lengthdir_y(32, playerDir);
+			x = clamp(x,10,room_width-10);
+			y = min(y,room_height-10);
 			with(instance_create_depth(x,y,depth+1,oAfterImage)) {
 				sprite_index = other.sprite_index;
 				image_index = other.image_index;
 				image_angle = other.angle;
 				image_blend = c_red;
+			}
+			var _collision = (collision_line(x,y,x+lengthdir_x(32, playerDir),y+lengthdir_y(32,playerDir),oPlatform,true,false) != noone);
+			var _boundsCollision = (x == room_width-10 or y == room_height-10 or x == 10);
+			if (_collision or _boundsCollision) {
+				if (_collision) {
+					while(!place_meeting(x+lengthdir_x(1, playerDir),y+lengthdir_y(1, playerDir),oPlatform)) {
+						x += lengthdir_x(1, playerDir);
+						y += lengthdir_y(1, playerDir);
+					}
+				}
+				collided = true;
+				ScreenShake(60,10);
+				timer = 30;
+			}
+		} else {
+			if (--timer <= 0) {
+				state = BOSSSTATE.IDLE;
+				chargeWindup = 0;
 			}
 		}
 		_targetAngle = playerDir;
@@ -66,7 +90,7 @@ if (!closed) {
 		if (oPlayer.dashing > 0) {
 			if (oPlayer.dashMaxCurve == -1) {
 				oPlayer.dashMaxCurve = 20;
-				oPlayer.dashing = 120;
+				oPlayer.dashing = 20;
 			}
 			oPlayer.dashInControl = false;
 			oPlayer.dashMaxCurve += 0.1;
@@ -107,7 +131,9 @@ if (closed) {
 		image_index = 0;
 	}
 } else {
-	sprite_index = sBoss;	
+	if (sprite_index == sBossFist) {
+		image_speed = -1;	
+	}
 }
 
 if (!surface_exists(surface)) surface = surface_create(sprite_width, sprite_height);
