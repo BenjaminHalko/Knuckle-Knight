@@ -47,6 +47,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Player/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Title","folderPath":"folders/Title.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Title Hands","folderPath":"folders/Title/Title Hands.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Transition","folderPath":"folders/Global/Transition.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},
@@ -112,6 +113,7 @@
     {"id":{"name":"GMLive_vm","path":"scripts/GMLive_vm/GMLive_vm.yy",},},
     {"id":{"name":"sPlatformArm","path":"sprites/sPlatformArm/sPlatformArm.yy",},},
     {"id":{"name":"GMLive_vm_init","path":"scripts/GMLive_vm_init/GMLive_vm_init.yy",},},
+    {"id":{"name":"Transition","path":"scripts/Transition/Transition.yy",},},
     {"id":{"name":"rTitle","path":"rooms/rTitle/rTitle.yy",},},
     {"id":{"name":"sHP","path":"sprites/sHP/sHP.yy",},},
     {"id":{"name":"Obj_FirebaseREST_Listener_RealTime","path":"objects/Obj_FirebaseREST_Listener_RealTime/Obj_FirebaseREST_Listener_RealTime.yy",},},
@@ -167,6 +169,7 @@
     {"id":{"name":"YYFirebaseRealTime","path":"extensions/YYFirebaseRealTime/YYFirebaseRealTime.yy",},},
     {"id":{"name":"GMLive_tools","path":"scripts/GMLive_tools/GMLive_tools.yy",},},
     {"id":{"name":"oCircleParticle","path":"objects/oCircleParticle/oCircleParticle.yy",},},
+    {"id":{"name":"oTransition","path":"objects/oTransition/oTransition.yy",},},
     {"id":{"name":"GMLive_http","path":"scripts/GMLive_http/GMLive_http.yy",},},
     {"id":{"name":"FirebaseRealTimeUserFunctions","path":"scripts/FirebaseRealTimeUserFunctions/FirebaseRealTimeUserFunctions.yy",},},
     {"id":{"name":"GMLive_parser","path":"scripts/GMLive_parser/GMLive_parser.yy",},},

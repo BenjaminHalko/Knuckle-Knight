@@ -34,6 +34,7 @@
     {"name":"Sprites","order":1,"path":"folders/Player/Sprites.yy",},
     {"name":"Title","order":13,"path":"folders/Title.yy",},
     {"name":"Title Hands","order":1,"path":"folders/Title/Title Hands.yy",},
+    {"name":"Transition","order":12,"path":"folders/Global/Transition.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDebug","order":6,"path":"objects/oDebug/oDebug.yy",},
@@ -75,6 +76,7 @@
     {"name":"GMLive","order":4,"path":"scripts/GMLive/GMLive.yy",},
     {"name":"GMLive_vm","order":5,"path":"scripts/GMLive_vm/GMLive_vm.yy",},
     {"name":"GMLive_vm_init","order":7,"path":"scripts/GMLive_vm_init/GMLive_vm_init.yy",},
+    {"name":"Transition","order":1,"path":"scripts/Transition/Transition.yy",},
     {"name":"rTitle","order":12,"path":"rooms/rTitle/rTitle.yy",},
     {"name":"sHP","order":2,"path":"sprites/sHP/sHP.yy",},
     {"name":"Obj_FirebaseREST_Listener_RealTime","order":2,"path":"objects/Obj_FirebaseREST_Listener_RealTime/Obj_FirebaseREST_Listener_RealTime.yy",},

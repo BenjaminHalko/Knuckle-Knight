@@ -6,7 +6,7 @@ function HurtPlayer(_player, _takeDamage=true) {
 		if (_takeDamage) {
 			if (_player.invincibility <= 0) {
 				
-				_player.hp--;
+				_player.hp = max(0,_player.hp-1);
 				if (_player.hp <= 0) {
 					global.death = true;
 					_player.knockback = sign(room_width/2-_player.x) * _player.maxwalk * 1.5;

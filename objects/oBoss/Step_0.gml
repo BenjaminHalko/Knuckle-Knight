@@ -8,15 +8,11 @@ if (global.death) {
 	instance_destroy(oLaser);
 	timer = 0;
 	if (sprite_index == sBoss) {
-		image_speed = ApproachFade(image_speed,0,0.02,0.8);	
+		image_speed = ApproachFade(image_speed,0,0.02,0.8);
+		fx_set_parameter(fx,"g_Intensity",1-abs(image_speed));
+		if (image_speed == 0) exit;
 	}
 }
-
-if (keyboard_check_pressed(ord("U"))) state = BOSSSTATE.SHOCKWAVE;
-if (keyboard_check_pressed(ord("Y"))) state = BOSSSTATE.LASER;
-if (keyboard_check_pressed(ord("I"))) state = BOSSSTATE.GUN;
-if (keyboard_check_pressed(ord("O"))) state = BOSSSTATE.FINGER;
-if (keyboard_check_pressed(ord("P"))) state = BOSSSTATE.CRUSH;
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
 var _targetAngle = 0;
@@ -28,9 +24,8 @@ switch (state) {
 		if (sprite_index == sBossGun and abs(angle_difference(angle,0)) <= 0.05) {
 			sprite_index = sBossFist;
 			image_index = 3;
-			
 		}
-		
+		if (attackWait <= 0) attackWait = 60 * 3;
 		if (sprite_index == sBoss) {
 			if (!damaged) {
 				if (global.audioTick) {
@@ -50,8 +45,7 @@ switch (state) {
 					var _dir = _playerDir+180+random_range(-20,20);
 					var _len = random_range(20,100);
 					idleX = oCamera.x+lengthdir_x(_len*1.5,_dir);
-					idleY = oCamera.y+lengthdir_y(_len*0.6,_dir);
-					idleWait = 30;
+					idleY = oCamera.y+lengthdir_y(_len*0.8,_dir)+INFO_HEIGHT;
 					idleWait = 30;
 				}
 				var _spd = lerp(3,2,median(max(0,point_distance(x,y,oPlayer.x,oPlayer.y)-80)/120,0,1));
@@ -61,6 +55,17 @@ switch (state) {
 				}
 				x += lengthdir_x(_spd,idleDirection);
 				y += lengthdir_y(_spd,idleDirection);
+			}
+			
+			if (--attackWait <= 0) {
+				var _attack = lastAttack;
+				while (_attack == lastAttack) {
+					_attack = choose(BOSSSTATE.CRUSH, BOSSSTATE.FINGER, BOSSSTATE.GUN, BOSSSTATE.LASER, BOSSSTATE.SHOCKWAVE);
+				}
+			
+				state = _attack;
+				lastAttack = _attack;
+				state = BOSSSTATE.SHOCKWAVE;
 			}
 		}
 	} break;
@@ -217,27 +222,28 @@ switch (state) {
 	} break;
 	case BOSSSTATE.CRUSH: {
 		var _x = room_width/2;
-		var _y = - 50;
+		var _y = -20;
 		if (x != _x and _y != y) {
 			moveToPoint(_x, _y);
 			if (x == _x and y == _y) {
-				var _obj = instance_find(oPlatform, random(instance_number(oPlatform)-1)+1);
-				var _x1 = _obj.x;
+				var _x1 = room_width/2;
 				var _x2 = _x1;
 				while(_x1 == _x2) {
-					_obj = instance_find(oPlatform, random(instance_number(oPlatform)-1)+1);
+					var _obj = instance_find(oPlatform, random(instance_number(oPlatform)-1)+1);
 					_x2 = _obj.x;
 				}
+				var _scale = sign(_x1-_x2);
 				instance_create_depth(_x1,-100,depth-1,oCrushHands,{
 					direction: 270,
+					image_xscale: _scale
 				});
 				instance_create_depth(_x2,-100,depth-1,oCrushHands,{
 					direction: 270,
-					image_xscale: -1
+					image_xscale: -_scale
 				});
 			}
 		} else if (!instance_exists(oCrushHands)) {
-			_y = 50;
+			_y = 120;
 			moveToPoint(_x, _y);
 			if (x == _x and y == _y) state = BOSSSTATE.IDLE;
 		}

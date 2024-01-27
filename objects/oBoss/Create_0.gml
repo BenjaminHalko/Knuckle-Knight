@@ -53,3 +53,10 @@ idleWait = 0;
 idleDirection = 0;
 
 eyeClosed = false;
+
+lastAttack = -1;
+attackWait = 0;
+
+fx = layer_get_fx("Greyscale");
+fx_set_parameter(fx,"g_Intensity",0);
+
