@@ -58,7 +58,7 @@ eyeClosed = false;
 lastAttack = -1;
 attackWait = 60 * 3;
 
-maxHP = 15;
+maxHP = 10;
 hp = maxHP;
 dead = false;
 deadTimer = 0;
