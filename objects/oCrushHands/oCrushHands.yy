@@ -1,21 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oHomingFinger",
+  "name": "oCrushHands",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "HomingFinger",
-    "path": "folders/Hurt/HomingFinger.yy",
+    "name": "Crush Hands",
+    "path": "folders/Hurt/Crush Hands.yy",
   },
-  "parentObjectId": {
-    "name": "pHurt",
-    "path": "objects/pHurt/pHurt.yy",
-  },
+  "parentObjectId": null,
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -32,8 +28,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sHomingFinger",
-    "path": "sprites/sHomingFinger/sHomingFinger.yy",
+    "name": "sCrushHands",
+    "path": "sprites/sCrushHands/sCrushHands.yy",
   },
   "spriteMaskId": null,
   "visible": true,

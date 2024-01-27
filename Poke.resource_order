@@ -32,6 +32,7 @@
     {"name":"Player","order":5,"path":"folders/Player.yy",},
     {"name":"Sprites","order":1,"path":"folders/Player/Sprites.yy",},
     {"name":"HomingFinger","order":6,"path":"folders/Hurt/HomingFinger.yy",},
+    {"name":"Crush Hands","order":7,"path":"folders/Hurt/Crush Hands.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDebug","order":6,"path":"objects/oDebug/oDebug.yy",},
@@ -59,6 +60,7 @@
     {"name":"GMLive_new","order":2,"path":"scripts/GMLive_new/GMLive_new.yy",},
     {"name":"oTriangleParticle","order":4,"path":"objects/oTriangleParticle/oTriangleParticle.yy",},
     {"name":"GMLive_token","order":7,"path":"scripts/GMLive_token/GMLive_token.yy",},
+    {"name":"sCrushHands","order":1,"path":"sprites/sCrushHands/sCrushHands.yy",},
     {"name":"GMLive_program","order":3,"path":"scripts/GMLive_program/GMLive_program.yy",},
     {"name":"GMLiveAPI","order":3,"path":"scripts/GMLiveAPI/GMLiveAPI.yy",},
     {"name":"sPlayerRun","order":1,"path":"sprites/sPlayerRun/sPlayerRun.yy",},

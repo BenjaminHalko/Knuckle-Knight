@@ -45,6 +45,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Player/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"HomingFinger","folderPath":"folders/Hurt/HomingFinger.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Crush Hands","folderPath":"folders/Hurt/Crush Hands.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},
@@ -73,6 +74,7 @@
     {"id":{"name":"ParticleFunctions","path":"scripts/ParticleFunctions/ParticleFunctions.yy",},},
     {"id":{"name":"FirebaseREST_HTTP_Failed_RealTime","path":"scripts/FirebaseREST_HTTP_Failed_RealTime/FirebaseREST_HTTP_Failed_RealTime.yy",},},
     {"id":{"name":"oBeatController","path":"objects/oBeatController/oBeatController.yy",},},
+    {"id":{"name":"oCrushHands","path":"objects/oCrushHands/oCrushHands.yy",},},
     {"id":{"name":"oSpikeFloor","path":"objects/oSpikeFloor/oSpikeFloor.yy",},},
     {"id":{"name":"sPlayerJump","path":"sprites/sPlayerJump/sPlayerJump.yy",},},
     {"id":{"name":"sHomingFinger","path":"sprites/sHomingFinger/sHomingFinger.yy",},},
@@ -91,6 +93,7 @@
     {"id":{"name":"GMLive_new","path":"scripts/GMLive_new/GMLive_new.yy",},},
     {"id":{"name":"oTriangleParticle","path":"objects/oTriangleParticle/oTriangleParticle.yy",},},
     {"id":{"name":"GMLive_token","path":"scripts/GMLive_token/GMLive_token.yy",},},
+    {"id":{"name":"sCrushHands","path":"sprites/sCrushHands/sCrushHands.yy",},},
     {"id":{"name":"sPlayerIdle","path":"sprites/sPlayerIdle/sPlayerIdle.yy",},},
     {"id":{"name":"GMLive_program","path":"scripts/GMLive_program/GMLive_program.yy",},},
     {"id":{"name":"oPlatformCutscene","path":"objects/oPlatformCutscene/oPlatformCutscene.yy",},},

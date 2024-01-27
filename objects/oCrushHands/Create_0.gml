@@ -3,5 +3,6 @@
 
 
 
-if (x >= room_width or x < 0 or y > room_height)
-instance_destroy();
+
+image_yscale = 10;
+image_blend = c_red;
