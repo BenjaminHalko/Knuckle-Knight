@@ -6,6 +6,6 @@ EnableLive;
 
 image_blend = c_red;
 targetY = 100;
-timer = 0;
+timer = 30;
 wait = true;
 collided = false;
