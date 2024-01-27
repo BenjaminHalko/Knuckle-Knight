@@ -57,6 +57,10 @@ eyeClosed = false;
 lastAttack = -1;
 attackWait = 0;
 
+maxHP = 20;
+hp = maxHP;
+dead = false;
+
 fx = layer_get_fx("Greyscale");
 fx_set_parameter(fx,"g_Intensity",0);
 

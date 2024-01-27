@@ -10,9 +10,12 @@ if (global.death) {
 	if (sprite_index == sBoss) {
 		image_speed = ApproachFade(image_speed,0,0.02,0.8);
 		fx_set_parameter(fx,"g_Intensity",1-abs(image_speed));
+		oGUI.grey = 1-abs(image_speed);
 		if (image_speed == 0) exit;
 	}
 }
+
+if (hp <= 0) dead = true;
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
 var _targetAngle = 0;
@@ -55,17 +58,19 @@ switch (state) {
 				}
 				x += lengthdir_x(_spd,idleDirection);
 				y += lengthdir_y(_spd,idleDirection);
-			}
+				
+				if (--attackWait <= 0) {
+					var _attack = lastAttack;
+					while (_attack == lastAttack) {
+						_attack = choose(BOSSSTATE.CRUSH, BOSSSTATE.FINGER, BOSSSTATE.GUN, BOSSSTATE.LASER, BOSSSTATE.SHOCKWAVE);
+					}
 			
-			if (--attackWait <= 0) {
-				var _attack = lastAttack;
-				while (_attack == lastAttack) {
-					_attack = choose(BOSSSTATE.CRUSH, BOSSSTATE.FINGER, BOSSSTATE.GUN, BOSSSTATE.LASER, BOSSSTATE.SHOCKWAVE);
+					state = _attack;
+					lastAttack = _attack;
 				}
-			
-				state = _attack;
-				lastAttack = _attack;
 			}
+			
+			
 		}
 	} break;
 	case BOSSSTATE.SHOCKWAVE: {
@@ -268,7 +273,8 @@ if (!closed) {
 				HurtPlayer(oPlayer.id, false);
 				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk;
 				damaged = true;
-				attackWait = 0;
+				hp--;
+				attackWait = 1;
 				damageTimer = 60;
 				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
@@ -308,4 +314,5 @@ if (closed) {
 	}
 }
 
-if (!surface_exists(surface)) surface = surface_create(sprite_width, sprite_height);
+if (!surface_exists(surface))
+	surface = surface_create(137, 150);
