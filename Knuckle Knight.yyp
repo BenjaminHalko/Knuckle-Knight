@@ -90,6 +90,7 @@
     {"id":{"name":"oAfterImage","path":"objects/oAfterImage/oAfterImage.yy",},},
     {"id":{"name":"snJump","path":"sounds/snJump/snJump.yy",},},
     {"id":{"name":"snBossHit","path":"sounds/snBossHit/snBossHit.yy",},},
+    {"id":{"name":"sBossWin","path":"sprites/sBossWin/sBossWin.yy",},},
     {"id":{"name":"HelperFunctions","path":"scripts/HelperFunctions/HelperFunctions.yy",},},
     {"id":{"name":"sBossEye","path":"sprites/sBossEye/sBossEye.yy",},},
     {"id":{"name":"oPlatformBroken","path":"objects/oPlatformBroken/oPlatformBroken.yy",},},

@@ -58,6 +58,7 @@
     {"name":"oAfterImage","order":8,"path":"objects/oAfterImage/oAfterImage.yy",},
     {"name":"snJump","order":1,"path":"sounds/snJump/snJump.yy",},
     {"name":"snBossHit","order":5,"path":"sounds/snBossHit/snBossHit.yy",},
+    {"name":"sBossWin","order":5,"path":"sprites/sBossWin/sBossWin.yy",},
     {"name":"sBossEye","order":1,"path":"sprites/sBossEye/sBossEye.yy",},
     {"name":"oPlatformBroken","order":2,"path":"objects/oPlatformBroken/oPlatformBroken.yy",},
     {"name":"oLeaderboardAPI","order":4,"path":"objects/oLeaderboardAPI/oLeaderboardAPI.yy",},
