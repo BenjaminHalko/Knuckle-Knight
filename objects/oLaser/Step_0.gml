@@ -4,11 +4,13 @@ EnableLive;
 
 
 image_xscale = Approach(image_xscale,20,1);
+image_yscale = 0.25;
+image_blend = c_orange;
 
 repeat(20) {
 		//         
 		var _len = random(sprite_width);
-		CreateParticle(x+lengthdir_x(_len, image_angle),y+lengthdir_y(_len, image_angle),oCircleParticle,random(360),10,random_range(0.05,0.1),random_range(0.1,5),random_range(0,360),c_white);	
+		CreateParticle(x+lengthdir_x(_len, image_angle),y+lengthdir_y(_len, image_angle),oCircleParticle,random(360),10,random_range(0.05,0.1),random_range(1,5),random_range(-30,30)+ 180 +image_angle,c_red);	
 	}
 	
 	
