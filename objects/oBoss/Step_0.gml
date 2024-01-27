@@ -266,7 +266,7 @@ if (!closed) {
 		
 			if (point_distance(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y) < 30) {
 				HurtPlayer(oPlayer.id, false);
-				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk * 1.5;
+				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk;
 				damaged = true;
 				attackWait = 0;
 				damageTimer = 60;
