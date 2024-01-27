@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.7",
-  "name": "Poke",
+  "name": "Knuckle Knight",
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
   ],
@@ -35,7 +35,9 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Global/Scripts.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"GUI","folderPath":"folders/GUI.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Hurt","folderPath":"folders/Hurt.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Crush Hands","folderPath":"folders/Hurt/Crush Hands.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Evil Hands","folderPath":"folders/Hurt/Evil Hands.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"HomingFinger","folderPath":"folders/Hurt/HomingFinger.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Laser","folderPath":"folders/Hurt/Laser.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Spikes","folderPath":"folders/Hurt/Spikes.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Platform","folderPath":"folders/Platform.yy",},
@@ -43,8 +45,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Platform/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Player.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Player/Sprites.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"HomingFinger","folderPath":"folders/Hurt/HomingFinger.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Crush Hands","folderPath":"folders/Hurt/Crush Hands.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},

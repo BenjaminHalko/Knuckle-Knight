@@ -22,7 +22,9 @@
     {"name":"Scripts","order":5,"path":"folders/Global/Scripts.yy",},
     {"name":"GUI","order":11,"path":"folders/GUI.yy",},
     {"name":"Hurt","order":8,"path":"folders/Hurt.yy",},
+    {"name":"Crush Hands","order":7,"path":"folders/Hurt/Crush Hands.yy",},
     {"name":"Evil Hands","order":4,"path":"folders/Hurt/Evil Hands.yy",},
+    {"name":"HomingFinger","order":6,"path":"folders/Hurt/HomingFinger.yy",},
     {"name":"Laser","order":5,"path":"folders/Hurt/Laser.yy",},
     {"name":"Spikes","order":1,"path":"folders/Hurt/Spikes.yy",},
     {"name":"Platform","order":6,"path":"folders/Platform.yy",},
@@ -30,8 +32,6 @@
     {"name":"Sprites","order":8,"path":"folders/Platform/Sprites.yy",},
     {"name":"Player","order":5,"path":"folders/Player.yy",},
     {"name":"Sprites","order":1,"path":"folders/Player/Sprites.yy",},
-    {"name":"HomingFinger","order":6,"path":"folders/Hurt/HomingFinger.yy",},
-    {"name":"Crush Hands","order":7,"path":"folders/Hurt/Crush Hands.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"oDebug","order":6,"path":"objects/oDebug/oDebug.yy",},
