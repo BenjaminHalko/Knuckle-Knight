@@ -179,7 +179,7 @@ switch (state) {
 				if (image_speed == 0 and sprite_index != sBossGun) {
 					sprite_index = sBossGun;
 					image_speed = 1;
-					timer = 30;
+					timer = 60;
 					
 				}
 				
@@ -261,8 +261,7 @@ switch (state) {
 	case BOSSSTATE.DEAD: {
 		closed = false;
 		moveToPoint(room_width/2,room_height/3);
-		damaged = true;
-		
+		damaged = true; 
 		repeat(50) {
 			
 		}
@@ -271,7 +270,7 @@ switch (state) {
 
 // Damaged
 if (!closed) {
-	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,64) and !damaged) {
+	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,64) and !damaged and state == BOSSSTATE.IDLE) {
 		if (oPlayer.dashing > 0) {
 			if (oPlayer.dashMaxCurve == -1) {
 				oPlayer.dashMaxCurve = 20;
