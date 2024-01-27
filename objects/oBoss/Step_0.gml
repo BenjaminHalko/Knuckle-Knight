@@ -103,7 +103,7 @@ switch (state) {
 					instance_create_depth(x,y,depth-1,oLaser);
 					//oLaser.image_xscale = 0;
 				} else if (oLaser.image_xscale == 20) {
-					oLaser.image_angle = ApproachFade(oLaser.image_angle,-180,5,0.8);
+					oLaser.image_angle = ApproachFade(oLaser.image_angle,-180,2.75,0.8);
 					if (oLaser.image_angle <= -180 + 0.01) {
 					instance_destroy(oLaser);
 					state = BOSSSTATE.IDLE;
@@ -144,7 +144,7 @@ switch (state) {
 				if (image_speed == 0 and sprite_index != sBossGun) {
 					sprite_index = sBossGun;
 					image_speed = 1;
-					timer = 30;
+					timer = 45;
 					
 				}
 				
