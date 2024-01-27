@@ -15,7 +15,7 @@ if (global.death) {
 	}
 }
 
-if (hp <= maxHP - 1) {
+if (hp <= 0) {
 	dead = true;
 	state = BOSSSTATE.DEAD;
 	
