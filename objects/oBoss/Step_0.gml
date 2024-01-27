@@ -59,7 +59,7 @@ switch (state) {
 				x += lengthdir_x(_spd,idleDirection);
 				y += lengthdir_y(_spd,idleDirection);
 				
-				if (--attackWait <= 0) {
+				if (attackWait <= 0) {
 					var _attack = lastAttack;
 					while (_attack == lastAttack) {
 						_attack = choose(BOSSSTATE.CRUSH, BOSSSTATE.FINGER, BOSSSTATE.GUN, BOSSSTATE.LASER, BOSSSTATE.SHOCKWAVE);
@@ -68,9 +68,10 @@ switch (state) {
 					state = _attack;
 					lastAttack = _attack;
 				}
+				
 			}
 			
-			
+			--attackWait
 		}
 	} break;
 	case BOSSSTATE.SHOCKWAVE: {
@@ -256,7 +257,7 @@ switch (state) {
 
 // Damaged
 if (!closed) {
-	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,40) and !damaged) {
+	if (point_in_circle(oPlayer.x,oPlayer.y,x,y,64) and !damaged) {
 		if (oPlayer.dashing > 0) {
 			if (oPlayer.dashMaxCurve == -1) {
 				oPlayer.dashMaxCurve = 20;
@@ -274,8 +275,7 @@ if (!closed) {
 				oPlayer.knockback = sign((oPlayer.dashDirection+90) % 360 >= 180) * oPlayer.maxwalk;
 				damaged = true;
 				hp--;
-				attackWait = 1;
-				damageTimer = 60;
+				damageTimer = 40;
 				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;
