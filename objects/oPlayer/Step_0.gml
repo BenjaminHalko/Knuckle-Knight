@@ -2,6 +2,20 @@
 
 EnableLive;
 
+if (global.death) {
+	deathSpd = ApproachFade(deathSpd,0,0.05,0.8);
+	image_speed = 0;
+	image_blend = c_red;
+	if (deathSpd == 0) {
+		if (visible) {
+				
+		}
+		
+		exit;
+	}
+}
+
+
 Input();
 
 #region Movement
@@ -84,7 +98,7 @@ var _landed = platform == noone;
 platform = collision_line(bbox_left,y+sign(vsp_final),bbox_left+hsp_final,y+vsp_final+1,oPlatform,false,false);
 if platform == noone
 	platform = collision_line(bbox_right,y+sign(vsp_final),bbox_right+hsp_final,y+vsp_final+1,oPlatform,false,false);
-x += hsp_final;
+x += hsp_final * deathSpd;
 
 if platform != noone and (y <= platform.bbox_top or vsp >= 0) {
 	y = platform.bbox_top;
@@ -97,7 +111,7 @@ if platform != noone and (y <= platform.bbox_top or vsp >= 0) {
 		//audio_play_sound(snLand,1,false);
 }
 
-y += vsp_final;
+y += vsp_final * deathSpd;
 #endregion
 
 // Clamp Values

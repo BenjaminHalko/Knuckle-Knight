@@ -2,6 +2,15 @@
 
 EnableLive;
 
+if (global.death) {
+	closed = false;
+	state = BOSSSTATE.IDLE;
+	timer = 0;
+	if (sprite_index == sBoss) {
+		image_speed = ApproachFade(image_speed,0,0.02,0.8);	
+	}
+}
+
 if (keyboard_check_pressed(ord("U"))) state = BOSSSTATE.SHOCKWAVE;
 if (keyboard_check_pressed(ord("Y"))) state = BOSSSTATE.LASER;
 if (keyboard_check_pressed(ord("I"))) state = BOSSSTATE.GUN;
@@ -24,9 +33,11 @@ switch (state) {
 		if (sprite_index == sBoss) {
 			if (!damaged) {
 				if (global.audioTick) {
-					pulse = 1;	
+					pulse = 1;
+					if (global.death) pulse *= abs(image_speed);
 				}
 				_targetAngle = 10*(1 - (global.audioBeat % 2 == 0)*2);
+				if (global.death) _targetAngle *= abs(image_speed);
 			}
 		
 			xstart = x;
@@ -44,6 +55,9 @@ switch (state) {
 				}
 				var _spd = lerp(3,2,median(max(0,point_distance(x,y,oPlayer.x,oPlayer.y)-80)/120,0,1));
 				idleDirection = ApproachCircleEase(idleDirection,point_direction(x,y,idleX,idleY),2,0.1);
+				if (global.death) {
+					_spd *= abs(image_speed);
+				}
 				x += lengthdir_x(_spd,idleDirection);
 				y += lengthdir_y(_spd,idleDirection);
 			}
@@ -53,6 +67,9 @@ switch (state) {
 		closed = true;
 		if (image_index >= 1) {
 			chargeWindup = ApproachFade(chargeWindup, 1, 0.05, 0.8);	
+		}
+		if (place_meeting(x,y,oPlayer)) {
+			HurtPlayer(oPlayer.id);	
 		}
 		if (chargeWindup < 0.99) {
 			x = xstart - lengthdir_x(chargeWindup*32, _playerDir);
@@ -64,15 +81,15 @@ switch (state) {
 			x += lengthdir_x(32, playerDir);
 			y += lengthdir_y(32, playerDir);
 			x = clamp(x,10,room_width-10);
-			y = min(y,room_height-10);
+			y = clamp(y,10,room_height-10);
 			with(instance_create_depth(x,y,depth+1,oAfterImage)) {
 				sprite_index = other.sprite_index;
 				image_index = other.image_index;
 				image_angle = other.angle;
 				image_blend = c_red;
 			}
-			var _collision = (collision_line(x,y,x+lengthdir_x(32, playerDir),y+lengthdir_y(32,playerDir),oPlatform,true,false) != noone);
-			var _boundsCollision = (x == room_width-10 or y == room_height-10 or x == 10);
+			var _collision = (playerDir > 180 and collision_line(x,y,x+lengthdir_x(32, playerDir),y+lengthdir_y(32,playerDir),oPlatform,true,false) != noone);
+			var _boundsCollision = (x == room_width-10 or y == room_height-10 or x == 10 or y == 10);
 			if (_collision or _boundsCollision) {
 				if (_collision) {
 					while(!place_meeting(x+lengthdir_x(1, playerDir),y+lengthdir_y(1, playerDir),oPlatform)) {
@@ -185,7 +202,7 @@ switch (state) {
 				_finger.trail = false;
 				_finger.image_angle = 90;
 				_finger.direction = 90;
-				_finger.speed = 3;
+				_finger.speed = 2.5;
 				timer = 60 * 3;
 			}
 		} else {
