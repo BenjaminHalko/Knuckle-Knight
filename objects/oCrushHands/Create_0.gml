@@ -4,7 +4,6 @@
 
 EnableLive;
 
-image_yscale = 10;
 image_blend = c_red;
 targetY = 100;
 timer = 0;
