@@ -55,7 +55,7 @@ idleDirection = 0;
 eyeClosed = false;
 
 lastAttack = -1;
-attackWait = 0;
+attackWait = 60 * 3;
 
 maxHP = 20;
 hp = maxHP;

@@ -28,7 +28,6 @@ switch (state) {
 			sprite_index = sBossFist;
 			image_index = 3;
 		}
-		if (attackWait <= 0) attackWait = 60 * 3;
 		if (sprite_index == sBoss) {
 			if (!damaged) {
 				if (global.audioTick) {
@@ -67,6 +66,7 @@ switch (state) {
 			
 					state = _attack;
 					lastAttack = _attack;
+					attackWait = 60 * 3;
 				}
 				
 			}
@@ -276,6 +276,7 @@ if (!closed) {
 				damaged = true;
 				hp--;
 				damageTimer = 40;
+				attackWait -= 60;
 				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;
