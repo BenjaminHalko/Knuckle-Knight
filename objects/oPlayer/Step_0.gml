@@ -51,7 +51,7 @@ if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 	canDash = false;
 	ScreenShake(10, 10);
 	repeat(20) {
-		CreateParticle(x,y,oParticle,random(360),10,random_range(0.05,0.1),random_range(0.1,5),180+dashDirection+random_range(-100,100));	
+		CreateParticle(x,y,oCircleParticle,random(360),10,random_range(0.05,0.1),random_range(0.1,5),180+dashDirection+random_range(-100,100));	
 	}
 	image_angle = 360*((dashDirection+90) % 360 >= 90);
 	dashInControl = true;

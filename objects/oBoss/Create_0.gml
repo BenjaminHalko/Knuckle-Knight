@@ -3,7 +3,8 @@ EnableLive;
 enum BOSSSTATE {
 	IDLE,
 	SHOCKWAVE,
-	LASER
+	LASER,
+	GUN
 }
 
 state = BOSSSTATE.IDLE;
@@ -25,6 +26,10 @@ xOffset = sprite_xoffset;
 yOffset = sprite_yoffset;
 offsetDist = point_distance(0,0,sprite_xoffset,sprite_yoffset);
 offsetDir = point_direction(0,0,sprite_xoffset,sprite_yoffset);
+gunSide = 0;
+gunKnockback = 0;
+gunDir = 0;
+gunAmount = 0;
 
 laser = noone;
 laserDir = 0;
@@ -33,7 +38,7 @@ surface = surface_create(sprite_width, sprite_height);
 
 uFlash = shader_get_uniform(shWhite, "percent");
 
-spd = 16;
+movespd = 16;
 
 playerDir = 0;
 chargeWindup = 0;

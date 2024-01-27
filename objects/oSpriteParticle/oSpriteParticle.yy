@@ -1,9 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oHandParticle",
+  "name": "oSpriteParticle",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -12,8 +13,8 @@
     "path": "folders/Global/Effects.yy",
   },
   "parentObjectId": {
-    "name": "oParticle",
-    "path": "objects/oParticle/oParticle.yy",
+    "name": "oCircleParticle",
+    "path": "objects/oCircleParticle/oCircleParticle.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -30,10 +31,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "sHandParticle",
-    "path": "sprites/sHandParticle/sHandParticle.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

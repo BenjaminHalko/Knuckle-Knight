@@ -4,6 +4,7 @@ EnableLive;
 
 if (keyboard_check_pressed(ord("U"))) state = BOSSSTATE.SHOCKWAVE;
 if (keyboard_check_pressed(ord("Y"))) state = BOSSSTATE.LASER;
+if (keyboard_check_pressed(ord("I"))) state = BOSSSTATE.GUN;
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
 var _targetAngle = 0;
@@ -12,6 +13,12 @@ var _fullyClosed = (sprite_index == sBossFist and image_index == 3);
 switch (state) {
 	default: {
 		closed = false;
+		if (sprite_index == sBossGun and abs(angle_difference(angle,0)) <= 0.05) {
+			sprite_index = sBossFist;
+			image_index = 3;
+			
+		}
+		
 		if (sprite_index == sBoss) {
 			if (!damaged) {
 				if (global.audioTick) {
@@ -28,8 +35,8 @@ switch (state) {
 				if (idleWait <= 0 or point_distance(x,y,idleX,idleY) < 100) {
 					var _dir = _playerDir+180+random_range(-20,20);
 					var _len = random_range(20,100);
-					idleX = oCamera.x+lengthdir_x(_len*2,_dir);
-					idleY = oCamera.y+lengthdir_y(_len*0.8,_dir);
+					idleX = oCamera.x+lengthdir_x(_len*1.5,_dir);
+					idleY = oCamera.y+lengthdir_y(_len*0.6,_dir);
 					idleWait = 30;
 					idleWait = 30;
 				}
@@ -106,6 +113,64 @@ switch (state) {
 			timer = 30;	
 		}
 	} break;
+	case BOSSSTATE.GUN: {
+		
+		
+		if (gunSide == 0) gunSide = choose(1,-1);
+		var _x = room_width/2+(room_width/2-100)*gunSide;
+		var _y = room_height/2-30;
+		if ((_playerDir+90) % 360 < 180) image_xscale = -1;
+		else image_xscale = 1;
+		_targetAngle = point_direction(x,y,_x,_y);
+		if (!closed) {
+			moveToPoint(_x, _y);
+			if (x == _x and y == _y) {
+				closed = true;
+			}
+		} else if (gunAmount >= 3) {
+			_targetAngle = 90;
+			if timer-- <= 0 {
+				state = BOSSSTATE.IDLE;
+				gunAmount = 0;
+				gunKnockback = 0;
+				gunSide = 0;
+				gunDir = 0;
+				_targetAngle = 0;
+			}
+		} else {
+			
+				if (gunKnockback == 0) _targetAngle = _playerDir;
+				else _targetAngle = _playerDir;
+				if (image_speed == 0 and sprite_index != sBossGun) {
+					sprite_index = sBossGun;
+					image_speed = 1;
+					timer = 30;
+					
+				}
+				
+				x = _x - lengthdir_x(gunKnockback*48, gunDir);
+				y = _y - lengthdir_y(gunKnockback*48, gunDir);
+				
+				gunKnockback = ApproachFade(gunKnockback, 0, 0.1, 0.8);
+				if (sprite_index == sBossGun) {
+					if (--timer <= 0) {
+						angle -= 50 * gunSide;
+						timer = 30;
+						gunKnockback = 1;
+						gunDir = _targetAngle;
+						gunAmount++;
+						if (gunAmount >= 3) timer = 40;
+						with(instance_create_depth(x,y,depth-1,oEvilHands)) {
+							image_angle = _targetAngle-90;
+							direction = _targetAngle;
+							speed = 15;
+							image_xscale = 0.4 * other.image_xscale;
+							image_yscale = 0.4;
+						}
+					}
+				}
+		}
+	} break;
 }
 
 // Damaged
@@ -138,7 +203,7 @@ if (!closed) {
 	}
 }
 
-if (state != BOSSSTATE.IDLE and !damaged and !oPlayer.dashing) {
+if (state != BOSSSTATE.IDLE and !damaged and !oPlayer.dashing and oPlayer.invincibility <= 0) {
 	if (place_meeting(x,y,oPlayer)) {
 		HurtPlayer(oPlayer.id);	
 	}
@@ -148,7 +213,8 @@ if (state != BOSSSTATE.IDLE and !damaged and !oPlayer.dashing) {
 // Animate
 pulse = ApproachFade(pulse,0,0.05,0.8);
 scale = pulse*0.4 + 1 + damagedAmount * 0.2;
-if (sprite_index == sBossFist) _targetAngle -= 80;
+if (state == BOSSSTATE.SHOCKWAVE) _targetAngle -= 80;
+if (state == BOSSSTATE.GUN) _targetAngle -= 90;
 angle = ApproachCircleEase(angle,_targetAngle,50,0.7);
 damagedAmount = Approach(damagedAmount, damaged, 0.4);
 if (damaged) {
@@ -157,7 +223,7 @@ if (damaged) {
 		damaged = false;
 }
 if (closed) {
-	if (sprite_index != sBossFist) {
+	if (sprite_index == sBoss) {
 		sprite_index = sBossFist;
 		image_index = 0;
 	}

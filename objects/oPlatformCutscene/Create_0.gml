@@ -10,6 +10,7 @@ active = false;
 waveOffset = random(1);
 
 
+
 var _uvs = sprite_get_uvs(sPlatformArm,0);
 texelY = _uvs[1];
 texelHeight = _uvs[3] - _uvs[1];
