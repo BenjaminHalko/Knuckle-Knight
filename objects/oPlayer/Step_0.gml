@@ -10,6 +10,7 @@ if (global.death) {
 			if (visible) {
 				visible = false;
 				ScreenShake(10,60);
+				audio_play_sound(snCollide,1,false);
 				repeat(100) {
 					CreateParticle(x,y,oTriangleParticle,random(360),10,0.01,random_range(1,5),random(360),c_white);
 				}
