@@ -2,6 +2,7 @@
 /// @param {real} y Y spawn pos
 /// @param {real} object Particle object
 /// @param {real} angle Angle of particle
+/// @param {real} size Angle of particle
 /// @param {real} effectSpd How quickly the effect dies off
 /// @param {real} speed How quickly the particle moves
 /// @param {real} direction Movement direciton
@@ -22,6 +23,7 @@ function CreateParticle(_x, _y, _object, _angle, _size, _effectSpd, _speed, _dir
 /// @param {real} y Y spawn pos
 /// @param {real} sprite Particle sprite
 /// @param {real} angle Angle of particle
+/// @param {real} size Angle of particle
 /// @param {real} effectSpd How quickly the effect dies off
 /// @param {real} speed How quickly the particle moves
 /// @param {real} direction Movement direciton
