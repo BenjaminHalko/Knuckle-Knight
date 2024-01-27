@@ -65,7 +65,6 @@ switch (state) {
 			
 				state = _attack;
 				lastAttack = _attack;
-				state = BOSSSTATE.SHOCKWAVE;
 			}
 		}
 	} break;
