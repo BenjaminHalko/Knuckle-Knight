@@ -8,7 +8,7 @@ if (global.death) {
 	image_blend = c_red;
 	if (deathSpd == 0) {
 		if (visible) {
-				
+			visible = false;
 		}
 		
 		exit;
