@@ -1,5 +1,4 @@
 function HurtPlayer(_player, _takeDamage=true) {
-	if (live_call(_player, _takeDamage)) return live_result;
 	if (_player.dashing <= 0) {
 		_player.knockback = sign(_player.x-x) * _player.maxwalk;
 		_player.vsp = -7;

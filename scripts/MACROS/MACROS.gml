@@ -1,4 +1,4 @@
-#macro EnableLive if (live_call()) return live_result
+#macro EnableLive //if (live_call()) return live_result
 #macro FIREBASE_LEADERBOARD_URL "https://globalgamejam-2024-default-rtdb.firebaseio.com/"
 #macro RESW 640
 #macro RESH 360

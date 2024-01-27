@@ -1,5 +1,4 @@
 function GeneratePlatforms(_seed, _amount) {
-	if (live_call(_seed, _amount)) return live_result;
 	layer_destroy_instances("GeneratedPlatforms");
 	layer_destroy_instances("GeneratedSpikes");
 	with(oPlatformGenerator) {

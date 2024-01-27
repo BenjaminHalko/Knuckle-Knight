@@ -10,7 +10,6 @@ function Input() {
 		if(gamepad_button_check(i,gp_padr) or gamepad_axis_value(i,gp_axislh) >= _deadzone) _gpRight = true;
 		if(gamepad_button_check(i,gp_padu) or gamepad_axis_value(i,gp_axislv) <= -_deadzone) _gpUp = true;
 		if(gamepad_button_check(i,gp_padd) or gamepad_axis_value(i,gp_axislv) >= _deadzone) _gpDown = true;
-		if(gamepad_button_check(i,gp_start)) game_restart();
 		for(var j = gp_face1; j <= gp_face4; j++) if(gamepad_button_check_pressed(i,j)) _gpJump = true;
 	}
 	
@@ -21,5 +20,6 @@ function Input() {
 	keyJump =	keyboard_check_pressed(vk_space) or
 				keyboard_check_pressed(vk_shift) or
 				keyboard_check_pressed(vk_control) or
+				keyboard_check_pressed(vk_enter) or
 				_gpJump;
 }

@@ -1,9 +1,5 @@
 /// @desc Setup
 
-// Debug
-instance_create_depth(0,0,0,obj_gmlive);
-instance_create_depth(0,0,0,oDebug);
-
 // OSType
 GetOsType();
 
