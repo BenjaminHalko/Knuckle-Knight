@@ -196,7 +196,7 @@ switch (state) {
 	} break;
 	case BOSSSTATE.CRUSH: {
 		var _x = room_width/2;
-		var _y = - 100;
+		var _y = - 50;
 		if (x != _x and _y != y) {
 			moveToPoint(_x, _y);
 			if (x == _x and y == _y) {
@@ -209,14 +209,16 @@ switch (state) {
 				}
 				instance_create_depth(_x1,-100,depth-1,oCrushHands,{
 					direction: 270,
-					speed: 5
 				});
 				instance_create_depth(_x2,-100,depth-1,oCrushHands,{
 					direction: 270,
-					speed: 5,
 					image_xscale: -1
 				});
 			}
+		} else if (!instance_exists(oCrushHands)) {
+			_y = 50;
+			moveToPoint(_x, _y);
+			if (x == _x and y == _y) state = BOSSSTATE.IDLE;
 		}
 	} break;
 }
