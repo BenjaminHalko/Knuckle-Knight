@@ -5,7 +5,7 @@ EnableLive;
 if (keyboard_check_pressed(ord("U"))) state = BOSSSTATE.SHOCKWAVE;
 if (keyboard_check_pressed(ord("Y"))) state = BOSSSTATE.LASER;
 if (keyboard_check_pressed(ord("I"))) state = BOSSSTATE.GUN;
-if (keyboard_check_pressed(ord("O"))) state = BOSSSTATE.SIDECRUSH;
+if (keyboard_check_pressed(ord("O"))) state = BOSSSTATE.FINGER;
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
 var _targetAngle = 0;
