@@ -3,6 +3,7 @@
 EnableLive;
 
 if (keyboard_check_pressed(ord("U"))) state = BOSSSTATE.SHOCKWAVE;
+if (keyboard_check_pressed(ord("Y"))) state = BOSSSTATE.LASER;
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
 var _targetAngle = 0;
@@ -84,6 +85,26 @@ switch (state) {
 	} break;
 	case BOSSSTATE.LASER: {
 		moveToPoint(room_width/2,room_height/4);
+		
+		if (x == room_width/2 and y == room_height/4) {
+			
+			if (--timer <= 0) {
+				
+				if (!instance_exists(oLaser)) {
+					instance_create_depth(x,y,depth-1,oLaser);
+					//oLaser.image_xscale = 0;
+				} else if (oLaser.image_xscale == 20) {
+					oLaser.image_angle = ApproachFade(oLaser.image_angle,-180,5,0.8);
+					if (oLaser.image_angle <= -180 + 0.01) {
+					instance_destroy(oLaser);
+					state = BOSSSTATE.IDLE;
+				}
+				}
+				
+			}
+		} else {
+			timer = 30;	
+		}
 	} break;
 }
 

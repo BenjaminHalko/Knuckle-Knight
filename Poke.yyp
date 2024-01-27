@@ -43,6 +43,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Player/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Evil Hands","folderPath":"folders/Hurt/Evil Hands.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Helper","folderPath":"folders/Platform/Helper.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Laser","folderPath":"folders/Hurt/Laser.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"gcmt-dll.dll","CopyToMask":0,"filePath":"datafiles/GMLive",},
@@ -66,6 +67,7 @@
     {"id":{"name":"FirebaseREST_asyncFunction_RealTime","path":"scripts/FirebaseREST_asyncFunction_RealTime/FirebaseREST_asyncFunction_RealTime.yy",},},
     {"id":{"name":"GMLive_roomLoader","path":"scripts/GMLive_roomLoader/GMLive_roomLoader.yy",},},
     {"id":{"name":"sEvilHands","path":"sprites/sEvilHands/sEvilHands.yy",},},
+    {"id":{"name":"oLaser","path":"objects/oLaser/oLaser.yy",},},
     {"id":{"name":"BossFunctions","path":"scripts/BossFunctions/BossFunctions.yy",},},
     {"id":{"name":"ParticleFunctions","path":"scripts/ParticleFunctions/ParticleFunctions.yy",},},
     {"id":{"name":"FirebaseREST_HTTP_Failed_RealTime","path":"scripts/FirebaseREST_HTTP_Failed_RealTime/FirebaseREST_HTTP_Failed_RealTime.yy",},},
@@ -102,6 +104,7 @@
     {"id":{"name":"sPlatform","path":"sprites/sPlatform/sPlatform.yy",},},
     {"id":{"name":"HurtFunctions","path":"scripts/HurtFunctions/HurtFunctions.yy",},},
     {"id":{"name":"LeaderboardAPI","path":"scripts/LeaderboardAPI/LeaderboardAPI.yy",},},
+    {"id":{"name":"sLaser","path":"sprites/sLaser/sLaser.yy",},},
     {"id":{"name":"sPlayerAir","path":"sprites/sPlayerAir/sPlayerAir.yy",},},
     {"id":{"name":"url_encode","path":"scripts/url_encode/url_encode.yy",},},
     {"id":{"name":"FirebaseREST_HTTP_Success_RealTime","path":"scripts/FirebaseREST_HTTP_Success_RealTime/FirebaseREST_HTTP_Success_RealTime.yy",},},
