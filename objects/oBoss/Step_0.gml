@@ -15,10 +15,9 @@ if (global.death) {
 	}
 }
 
-if (hp <= 0) {
+if (hp <= maxHP-1) {
 	dead = true;
 	state = BOSSSTATE.DEAD;
-	
 }
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
@@ -87,10 +86,12 @@ switch (state) {
 		if (place_meeting(x,y,oPlayer)) {
 			HurtPlayer(oPlayer.id);	
 		}
+		if (chargeWindup < 0.5) {
+			playerDir = _playerDir;	
+		}
 		if (chargeWindup < 0.99) {
-			x = xstart - lengthdir_x(chargeWindup*32, _playerDir);
-			y = ystart - lengthdir_y(chargeWindup*32, _playerDir);
-			playerDir = _playerDir;
+			x = xstart - lengthdir_x(chargeWindup*32, playerDir);
+			y = ystart - lengthdir_y(chargeWindup*32, playerDir);
 			collided = false;
 			
 		} else if (!collided) {
@@ -261,9 +262,13 @@ switch (state) {
 	case BOSSSTATE.DEAD: {
 		closed = false;
 		moveToPoint(room_width/2,room_height/3);
-		damaged = true; 
-		repeat(50) {
+		damaged = true;
+		if (--deadTimer <= 0) {
+			repeat(50) {
 			
+			}
+			ScreenShake(10,30);
+			deadTimer = 30;
 		}
 	} break;
 }
