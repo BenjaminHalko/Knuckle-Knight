@@ -15,11 +15,15 @@ if (global.death) {
 	}
 }
 
-if (hp <= 0) dead = true;
+if (hp <= 0) {
+	dead = true;
+	state = BOSSSTATE.DEAD;
+}
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
 var _targetAngle = 0;
 var _fullyClosed = (sprite_index == sBossFist and image_index == 3);
+
 // Switch
 switch (state) {
 	default: {
@@ -253,6 +257,10 @@ switch (state) {
 			if (x == _x and y == _y) state = BOSSSTATE.IDLE;
 		}
 	} break;
+	case BOSSSTATE.DEAD: {
+		closed = false;
+		moveToPoint(room_width/2,room_height/3);
+	} break;
 }
 
 // Damaged
@@ -264,8 +272,12 @@ if (!closed) {
 				oPlayer.dashing = 20;
 			}
 			oPlayer.dashInControl = false;
-			oPlayer.dashMaxCurve += 0.1;
-			oPlayer.dashDirection = ApproachCircleEase(oPlayer.dashDirection,point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y),oPlayer.dashMaxCurve,0.5);
+			oPlayer.dashMaxCurve += 1;
+			if (oPlayer.dashMaxCurve >= 35) {
+				oPlayer.dashDirection = point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y);
+			} else {
+				oPlayer.dashDirection = ApproachCircleEase(oPlayer.dashDirection,point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y),oPlayer.dashMaxCurve,0.5);
+			}
 			oPlayer.hsp = lengthdir_x(14,oPlayer.dashDirection);
 			oPlayer.vsp = lengthdir_y(14,oPlayer.dashDirection);
 			

@@ -6,7 +6,8 @@ enum BOSSSTATE {
 	LASER,
 	GUN,
 	FINGER,
-	CRUSH
+	CRUSH,
+	DEAD
 }
 
 state = BOSSSTATE.IDLE;
