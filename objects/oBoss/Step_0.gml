@@ -264,11 +264,17 @@ switch (state) {
 		moveToPoint(room_width/2,room_height/3);
 		damaged = true;
 		if (--deadTimer <= 0) {
-			repeat(50) {
-			
+			if (explosionCount < 10) {
+				repeat(100) {
+					CreateParticle(x,y,oTriangleParticle,random(360),10,0.01,random_range(1,5),random(360),c_white);
+				}
+				ScreenShake(10,30);
+				deadTimer = 30;
+				explosionCount++;
+				audio_play_sound(snCollide,1,false);
+			} else {
+				sprite_index = sBossWin;
 			}
-			ScreenShake(10,30);
-			deadTimer = 30;
 		}
 	} break;
 }
