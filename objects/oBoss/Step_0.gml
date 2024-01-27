@@ -182,7 +182,7 @@ switch (state) {
 				_finger.trail = false;
 				_finger.image_angle = 90;
 				_finger.direction = 90;
-				_finger.speed = 4;
+				_finger.speed = 3;
 				timer = 60 * 3;
 			}
 		} else {
