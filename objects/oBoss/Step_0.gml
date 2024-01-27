@@ -15,9 +15,10 @@ if (global.death) {
 	}
 }
 
-if (hp <= 0) {
+if (hp <= maxHP - 1) {
 	dead = true;
 	state = BOSSSTATE.DEAD;
+	
 }
 
 var _playerDir = point_direction(x,y,oPlayer.x,oPlayer.y-16);
@@ -152,7 +153,7 @@ switch (state) {
 	case BOSSSTATE.GUN: {
 		if (gunSide == 0) gunSide = choose(1,-1);
 		var _x = room_width/2+(room_width/2-100)*gunSide;
-		var _y = room_height/2-30;
+		var _y = room_height/2;
 		if ((_playerDir+90) % 360 < 180) image_xscale = -1;
 		else image_xscale = 1;
 		_targetAngle = point_direction(x,y,_x,_y);
@@ -260,6 +261,7 @@ switch (state) {
 	case BOSSSTATE.DEAD: {
 		closed = false;
 		moveToPoint(room_width/2,room_height/3);
+		damaged = 
 	} break;
 }
 
@@ -273,11 +275,7 @@ if (!closed) {
 			}
 			oPlayer.dashInControl = false;
 			oPlayer.dashMaxCurve += 1;
-			if (oPlayer.dashMaxCurve >= 35) {
-				oPlayer.dashDirection = point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y);
-			} else {
-				oPlayer.dashDirection = ApproachCircleEase(oPlayer.dashDirection,point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y),oPlayer.dashMaxCurve,0.5);
-			}
+			oPlayer.dashDirection = point_direction(oPlayer.x+lengthdir_x(20,oPlayer.dashDirection+180),oPlayer.y+lengthdir_y(20,oPlayer.dashDirection+180),x,y);
 			oPlayer.hsp = lengthdir_x(14,oPlayer.dashDirection);
 			oPlayer.vsp = lengthdir_y(14,oPlayer.dashDirection);
 			
@@ -288,7 +286,7 @@ if (!closed) {
 				damaged = true;
 				hp--;
 				damageTimer = 40;
-				attackWait -= 60;
+				attackWait = 1;
 				audio_play_sound(snBossHit,1,false);
 				oPlayer.dashing = 0;
 				oPlayer.dashMaxCurve = -1;
