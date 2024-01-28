@@ -22,7 +22,7 @@ if (global.death) {
 					direction = 90;
 					spd = 0.05;
 				}
-				call_later(120, time_source_units_frames, Transition);
+				call_later(90, time_source_units_frames, Transition);
 			}
 		}
 	} else if knockback == 0 and platform != noone {

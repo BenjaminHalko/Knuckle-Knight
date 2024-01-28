@@ -55,7 +55,6 @@
     {"name":"sPlatform","order":1,"path":"sprites/sPlatform/sPlatform.yy",},
     {"name":"HurtFunctions","order":2,"path":"scripts/HurtFunctions/HurtFunctions.yy",},
     {"name":"snDash","order":6,"path":"sounds/snDash/snDash.yy",},
-    {"name":"snShoot","order":7,"path":"sounds/snShoot/snShoot.yy",},
     {"name":"oTitle","order":3,"path":"objects/oTitle/oTitle.yy",},
     {"name":"sPlayerAir","order":6,"path":"sprites/sPlayerAir/sPlayerAir.yy",},
     {"name":"fFont","order":1,"path":"fonts/fFont/fFont.yy",},

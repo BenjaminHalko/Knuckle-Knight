@@ -23,12 +23,11 @@ if (sprite_index == sBoss or sprite_index == sBossFist) {
 		draw_surface_ext(surface,x-lengthdir_x(offsetDist,offsetDir+angle)*scale+random_range(-2,2)*damagedAmount,y-lengthdir_y(offsetDist,offsetDir+angle)*scale+random_range(-2,2)*damagedAmount,scale,scale,angle,c_white,1);
 		shader_reset();
 	}
+} else if (sprite_index == sBossWin) {
+	draw_sprite(sprite_index,image_index,round(x),round(y));
+	draw_set_color(c_white);
+	draw_text_transformed(round(x),round(y)+62,"YOU WIN.",2,2,0);
+	draw_text_transformed(round(x),round(y)+82,"(YOU CAN LEAVE NOW)",1,1,0);
 } else {
 	draw_sprite_ext(sprite_index,image_index,x,y,scale*image_xscale,scale,angle,c_white,1);
-	
-	if (sprite_index == sBossWin) {
-		draw_set_color(c_white);
-		draw_text_transformed(round(x),round(y)+62,"YOU WIN.",2,2,0);
-		draw_text_transformed(round(x),round(y)+82,"(YOU CAN LEAVE NOW)",1,1,0);
-	}
 }

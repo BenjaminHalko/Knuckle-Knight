@@ -80,7 +80,6 @@
     {"id":{"name":"HurtFunctions","path":"scripts/HurtFunctions/HurtFunctions.yy",},},
     {"id":{"name":"snDash","path":"sounds/snDash/snDash.yy",},},
     {"id":{"name":"sLaser","path":"sprites/sLaser/sLaser.yy",},},
-    {"id":{"name":"snShoot","path":"sounds/snShoot/snShoot.yy",},},
     {"id":{"name":"oTitle","path":"objects/oTitle/oTitle.yy",},},
     {"id":{"name":"sPlayerAir","path":"sprites/sPlayerAir/sPlayerAir.yy",},},
     {"id":{"name":"fFont","path":"fonts/fFont/fFont.yy",},},
