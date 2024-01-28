@@ -1,5 +1,7 @@
 /// @desc Setup
 
+audio_master_gain(0.8);
+
 // OSType
 GetOsType();
 
