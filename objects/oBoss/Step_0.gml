@@ -13,6 +13,7 @@ if (global.death) {
 		oGUI.grey = 1-abs(image_speed);
 		if (image_speed == 0) exit;
 	}
+	scale = 1;
 }
 
 if (hp <= 0) {
@@ -51,7 +52,7 @@ switch (state) {
 					var _dir = _playerDir+180+random_range(-20,20);
 					var _len = random_range(20,100);
 					idleX = oCamera.x+lengthdir_x(_len*1.5,_dir);
-					idleY = oCamera.y+lengthdir_y(_len*0.8,_dir)+INFO_HEIGHT;
+					idleY = oCamera.y+lengthdir_y(_len*0.8,_dir);
 					idleWait = 30;
 				}
 				var _spd = lerp(3,2,median(max(0,point_distance(x,y,oPlayer.x,oPlayer.y)-80)/120,0,1));

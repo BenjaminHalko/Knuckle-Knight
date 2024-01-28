@@ -13,6 +13,7 @@ function Input() {
 		for(var j = gp_face1; j <= gp_face4; j++) if(gamepad_button_check_pressed(i,j)) _gpJump = true;
 	}
 	
+	keyJumpUp = keyboard_check_pressed(ord("W")) or keyboard_check_pressed(vk_up);
 	keyLeft =	keyboard_check(vk_left) or keyboard_check(ord("A")) or _gpLeft;
 	keyRight =	keyboard_check(vk_right) or keyboard_check(ord("D")) or _gpRight;
 	keyUp =		keyboard_check(vk_up) or keyboard_check(ord("W")) or _gpUp;

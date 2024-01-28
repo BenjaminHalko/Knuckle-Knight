@@ -20,9 +20,9 @@ if (global.death) {
 					image_angle = other.image_angle;
 					image_xscale = other.image_xscale;
 					image_blend = c_red;
-					speed = 4;
+					speed = 8;
 					direction = 90;
-					spd = 0.02;
+					spd = 0.05;
 				}
 				call_later(120, time_source_units_frames, Transition);
 			}
@@ -41,6 +41,7 @@ if (global.death) {
 	keyRight = 0;
 	keyLeft = 0;
 	keyJump = 0;
+	keyJumpUp = 0;
 }
 var _move = keyRight - keyLeft;
 if (dashing <= 0) {
@@ -60,7 +61,7 @@ if (dashing <= 0) {
 	vsp = min(vsp, maxvspd);
 }
 
-if(keyJump)
+if(keyJump or keyJumpUp)
 	jumpTimer = jump_buffer;
 	
 if(canJump-- > 0 and jumpTimer > 0) {

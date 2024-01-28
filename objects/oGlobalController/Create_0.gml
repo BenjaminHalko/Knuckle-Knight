@@ -9,6 +9,7 @@ window_center();
 
 // Surface
 surface_resize(application_surface, RESW, RESH);
+display_set_gui_size(RESW, RESH);
 
 // Goto Next Room
 room_goto_next();

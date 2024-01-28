@@ -40,6 +40,6 @@ knockback = 0;
 invincibility = 0;
 hp = MAXHEALTH;
 
-deathTimer = 60;
+deathTimer = 30;
 
 dashCurve = animcurve_get_channel(PlayerCurves, "dash");
