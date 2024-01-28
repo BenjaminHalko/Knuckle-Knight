@@ -1,7 +1,5 @@
 /// @desc
 
-EnableLive;
-
 if (global.death) {
 	closed = false;
 	state = BOSSSTATE.IDLE;

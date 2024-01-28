@@ -1,7 +1,5 @@
 /// @desc 
 
-EnableLive;
-
 if (object_index == oPlatformCutscene) {
 	var _spd = 10;
 	if (yPosTarget == ystart) _spd = (yPosTarget - yPosStart) * 0.05;

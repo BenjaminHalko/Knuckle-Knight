@@ -4,7 +4,7 @@
   "name": "HTML5",
   "option_html5_allow_fullscreen": true,
   "option_html5_browser_title": "Knuckle Knight",
-  "option_html5_centregame": false,
+  "option_html5_centregame": true,
   "option_html5_display_cursor": false,
   "option_html5_facebook_app_display_name": "",
   "option_html5_facebook_id": "",

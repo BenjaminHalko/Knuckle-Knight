@@ -1,4 +1,4 @@
-EnableLive;
+
 
 enum BOSSSTATE {
 	IDLE,

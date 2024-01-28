@@ -1,9 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
-EnableLive;
-
 if (wait) {
 	y = ApproachFade(y,targetY,10,0.6);
 	if (y == targetY) {

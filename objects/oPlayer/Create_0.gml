@@ -1,7 +1,5 @@
 /// @desc Initialize Player
 
-EnableLive;
-
 // Movement Constants
 grv = 0.8;
 fric = 0.3;

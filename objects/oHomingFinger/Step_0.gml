@@ -1,9 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
-EnableLive;
-
 if (!trail) {
 	if(--timer<=0) {
 		audio_stop_sound(snTick);

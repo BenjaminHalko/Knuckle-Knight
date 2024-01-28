@@ -1,7 +1,5 @@
 /// @desc
 
-EnableLive;
-
 if (sprite_index == sBoss or sprite_index == sBossFist) {
 	surface_set_target(surface);
 	draw_clear_alpha(c_black,0);

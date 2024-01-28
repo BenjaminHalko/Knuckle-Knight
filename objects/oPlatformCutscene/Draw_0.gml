@@ -1,4 +1,4 @@
-EnableLive;
+
 
 draw_self();
 shader_set(shPlatformFade);

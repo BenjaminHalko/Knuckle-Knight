@@ -1,7 +1,5 @@
 /// @desc Movement
 
-EnableLive;
-
 if (global.death) {
 	image_blend = c_red;
 	

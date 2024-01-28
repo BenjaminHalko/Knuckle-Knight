@@ -1,7 +1,5 @@
 /// @desc Activate Platform
 
-EnableLive;
-
 var _lastActive = active;
 active = false;
 with(oPlayer) {

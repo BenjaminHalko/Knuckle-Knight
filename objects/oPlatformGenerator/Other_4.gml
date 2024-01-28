@@ -1,6 +1,5 @@
 /// @desc
 
-EnableLive;
 if (room != rTitle and room != rInit) {
 	platforms = [];
 	var _roomInfo = room_get_info(room,false,false,true,true).layers;

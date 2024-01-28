@@ -1,7 +1,5 @@
 /// @desc Initialize Platform
 
-EnableLive;
-
 yPos = y;
 yPosTarget = ystart;
 yPosStart = 0;
