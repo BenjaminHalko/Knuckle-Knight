@@ -240,7 +240,8 @@ switch (state) {
 				var _x2 = _x1;
 				while(_x1 == _x2) {
 					var _obj = instance_find(oPlatform, random(instance_number(oPlatform)-1)+1);
-					_x2 = _obj.x;
+					if (sign(room_width/2 - oPlayer.x) == sign(_x1 - _obj.x))
+						_x2 = _obj.x;
 				}
 				var _scale = sign(_x1-_x2);
 				instance_create_depth(_x1,-100,depth-1,oCrushHands,{
