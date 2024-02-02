@@ -84,6 +84,7 @@ if (dashing <= 0 and canDash and keyJump and canJump < 0) {
 	else
 		dashDirection = point_direction(0,0,keyRight-keyLeft,keyDown-keyUp);
 	dashing = dashAmount;
+	dashIFrames = 5;
 	canDash = false;
 	audio_play_sound(snDash,1,false,1,0,0.5);
 	ScreenShake(10, 10);
@@ -149,6 +150,10 @@ if (invincibility <= 0) {
 } else {
 	invincibility--;
 	image_alpha = Wave(0.2,0.95,0.1,0);	
+}
+
+if (dashing <= 0) {	
+	dashIFrames--;
 }
 	
 // Animation

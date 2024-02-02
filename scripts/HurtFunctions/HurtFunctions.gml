@@ -1,5 +1,5 @@
 function HurtPlayer(_player, _takeDamage=true) {
-	if (_player.dashing <= 0) {
+	if (_player.dashIFrames <= 0) {
 		_player.knockback = sign(_player.x-x) * _player.maxwalk;
 		_player.vsp = -7;
 		if (_takeDamage) {

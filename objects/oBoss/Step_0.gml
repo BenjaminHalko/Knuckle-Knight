@@ -127,27 +127,29 @@ switch (state) {
 		_targetAngle = playerDir;
 	} break;
 	case BOSSSTATE.LASER: {
-		moveToPoint(room_width/2,room_height/4);
-		
-		if (x == room_width/2 and y == room_height/4) {
-			
-			if (--timer <= 0) {
-				
-				if (!instance_exists(oLaser)) {
+		if (!instance_exists(oLaser)) {
+			if (laserDir == 0) {
+				laserDir = choose(1,-1);
+			}
+			moveToPoint(room_width/2+(room_width/2-80)*laserDir,room_height/4);
+			if (x == room_width/2+(room_width/2-80)*laserDir and y == room_height/4) {
+				if (--timer <= 0) {
 					audio_play_sound(snLaser,1,false);
 					instance_create_depth(x,y,depth-1,oLaser);
+					oLaser.image_angle -= 90;
 					//oLaser.image_xscale = 0;
-				} else if (oLaser.image_xscale == 20) {
-					oLaser.image_angle = ApproachFade(oLaser.image_angle,-180,2.75,0.8);
-					if (oLaser.image_angle <= -180 + 0.01) {
-					instance_destroy(oLaser);
-					state = BOSSSTATE.IDLE;
 				}
-				}
-				
+			} else {
+				timer = 30;	
 			}
-		} else {
-			timer = 30;	
+		} else if (oLaser.image_xscale == 20) {
+			x = ApproachFade(x,room_width/2-(room_width/2-80)*laserDir,6,0.8);
+			oLaser.x = x;
+			if (abs(x-room_width/2) >= room_width/2-80.01) {
+				instance_destroy(oLaser);
+				laserDir = 0;
+				state = BOSSSTATE.IDLE;
+			}
 		}
 	} break;
 	case BOSSSTATE.GUN: {
@@ -219,7 +221,7 @@ switch (state) {
 				_finger.image_angle = 90;
 				_finger.direction = 90;
 				_finger.speed = 2.5;
-				timer = 60 * 5;
+				timer = 60 * 3;
 			}
 		} else {
 			x = _x + random_range(-3,3);	

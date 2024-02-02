@@ -35,6 +35,7 @@ platform = noone;
 
 knockback = 0;
 
+dashIFrames = 0;
 invincibility = 0;
 hp = MAXHEALTH;
 
