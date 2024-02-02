@@ -80,7 +80,7 @@ switch (state) {
 	case BOSSSTATE.SHOCKWAVE: {
 		closed = true;
 		if (image_index >= 1) {
-			chargeWindup = ApproachFade(chargeWindup, 1, 0.05, 0.8);	
+			chargeWindup = ApproachFade(chargeWindup, 1, 0.03, 0.8);	
 		}
 		if (place_meeting(x,y,oPlayer)) {
 			HurtPlayer(oPlayer.id);	
@@ -221,7 +221,7 @@ switch (state) {
 				_finger.image_angle = 90;
 				_finger.direction = 90;
 				_finger.speed = 2.5;
-				timer = 60 * 3;
+				timer = 60 * 3.5;
 			}
 		} else {
 			x = _x + random_range(-3,3);	
