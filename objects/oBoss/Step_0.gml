@@ -221,7 +221,7 @@ switch (state) {
 				_finger.image_angle = 90;
 				_finger.direction = 90;
 				_finger.speed = 2.5;
-				timer = 60 * 3.5;
+				timer = 60 * 3;
 			}
 		} else {
 			x = _x + random_range(-3,3);	
